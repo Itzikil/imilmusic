@@ -1,0 +1,37 @@
+.contact-container {
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+    }
+    h1{
+        margin-bottom: 20px;
+    }
+    a {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        width: 100px;
+        // background-color: gray;
+        border-radius: 10px;
+        margin: 0;
+        padding: 0;
+        // &:hover{
+        //     color: aqua;
+        // }
+    }
+
+    .left-logo {
+        width: 35px;
+        height: 50px;
+    }
+
+    .right-logo {
+        width: 100px;
+    }
+}

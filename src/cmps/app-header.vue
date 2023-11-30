@@ -1,0 +1,35 @@
+<template>
+  <header>
+    <nav>
+      <router-link to="/"> <span role="img" aria-label="logo">Logo</span> </router-link>
+      <div class="link-container">
+        <!-- <router-link to="/car">Cars</router-link>
+        <router-link to="/review">Reviews</router-link>
+        <router-link to="/chat">Chat</router-link>
+        <router-link to="/login">Login / Signup</router-link> -->
+        <div class="header-line"></div>
+        <router-link to="/media">media</router-link>
+        <router-link to="/lesson">lessons</router-link>
+        <router-link to="/contact">contact</router-link>
+        <router-link to="/about">about</router-link>
+        <div class="header-line"></div>
+      </div>
+    </nav>
+    <section class="loggedin-user" v-if="loggedInUser">
+      <router-link :to="`/user/${loggedInUser._id}`">
+        {{ loggedInUser.fullname }}
+      </router-link>
+      <span>{{ loggedInUser.score.toLocaleString() }}</span>
+      <img :src="loggedInUser.imgUrl" />
+    </section>
+  </header>
+</template>
+<script>
+export default {
+  computed: {
+    loggedInUser() {
+      return this.$store.getters.loggedinUser
+    },
+  }
+}
+</script>

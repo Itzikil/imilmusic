@@ -1,0 +1,14 @@
+.background-image-container {
+    background-image: url('@/assets/imgs/background.jpeg'); // Use the imported image
+    background-size: cover; // Adjusts the image size to cover the entire container
+    background-position: center; // Centers the image horizontally and vertically
+    background-repeat: no-repeat; // Prevents image from repeating
+    // height: 91vh; // Sets the container height to the viewport height
+    flex: 1;
+  }
+
+  .bold-link{
+    font-weight: 700;
+    font-size: larger;
+    list-style: none;
+  }
