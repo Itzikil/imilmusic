@@ -8,7 +8,7 @@ import vue from '@vitejs/plugin-vue'
 //   plugins: [createVuePlugin()],
 // };
 export default defineConfig({
-  base: '/',
+  base: '/imilmusic',
   plugins: [vue()],
   resolve: {
     alias: {
