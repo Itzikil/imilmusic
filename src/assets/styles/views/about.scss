@@ -52,6 +52,27 @@
 
     .second-text {
         transform: translate(-70%, -10%);
+    }
+}
 
+@media (max-width: 600px) {
+    .about-container {
+        flex-direction: column;
+        gap: 200px;
+
+        .first-about,
+        .second-about {
+            width: 100%;
+            height: 100%;
+        }
+
+        .about-text {
+            height: 100%;
+            transform: translate(20% ,70%);
+        }
+
+        .second-text {
+            transform: translate(-10% , 70%);
+        }
     }
 }

@@ -129,16 +129,31 @@
         .hero-container {
             flex-direction: column-reverse;
 
+            .message-box {
+                transform: none;
+            }
+
             >* {
                 margin-bottom: 20px;
             }
         }
 
-        // .instruments-container {
-        //     .instrument {
-        //         width: 40%;
-        //         margin-bottom: 15px;
-        //     }
-        // }
+        .instruments-container {
+            flex-wrap: wrap;
+
+            .instrument {
+                width: 40%;
+                margin-bottom: 15px;
+
+                h4 {
+                    font-size: large;
+                }
+
+                img {
+                    object-fit: cover;
+                    object-position: 30% center;
+                }
+            }
+        }
     }
 }
