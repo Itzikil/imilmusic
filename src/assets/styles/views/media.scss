@@ -1,14 +1,47 @@
 .media-container {
+    // height: 100vh;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+    // overflow: hidden;
+    overflow-x: hidden;
 
     .videos-container {
         display: flex;
-        gap: 20px;
-        overflow-x: scroll;
-        .video-container{
+        overflow-x: hidden;
+        padding-block: 200px;
+        align-items: center;
+        position: relative;
+        
+        .video-container {
+            position: absolute;
+            z-index: 100;
+            transition: 2s;
             
-            iframe{
+            iframe {
+                transition: 2s;
                 border-radius: 20px;
+                flex: 1;
+                width: 310px;
+                height: 200px;
+                transform: scale(1.2);
+            }
+        }
 
+        .small-video {
+            z-index: 80;
+
+            iframe {
+                transform: scale(1);
+            }
+        }
+
+        .medium-video {
+            z-index: 90;
+
+            iframe {
+                transform: scale(1.1);
             }
         }
     }
