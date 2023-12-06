@@ -3,15 +3,17 @@
         <div class="videos-container" ref="videoContainer">
             <div v-for="(video, idx) in videos" :key="idx"
                 :style="{ transform: `translateX(${(idx + offset) % videos.length * 250}px)` }"
-                :class="['video-container', getPosition(idx)]"
-                @click="showVideo(idx)">
-                <iframe :src="`https://www.youtube.com/embed/${video}`" title="YouTube video player" frameborder="0"
+                :class="['video-container', getPosition(idx), playVideo(idx)]">
+                <iframe :src="`https://www.youtube.com/embed/${video}`" @mousedown.stop title="YouTube video player"
+                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
+                    allowfullscreen>
+                </iframe>
+                <div class="video-cover" @click="showVideo(idx)"></div>
             </div>
         </div>
-        <button @click="slide(-1)">-1</button>
-        <button @click="slide(1)">1</button>
+        <button @click="slide(-1)" class="arrow"><img src="@/assets/imgs/arrow.png" alt=""></button>
+        <button @click="slide(1)" class="arrow right-arrow"><img src="@/assets/imgs/arrow.png" alt=""></button>
     </section>
 </template>
   
@@ -22,12 +24,13 @@ export default {
         return {
             videos: [
                 'tk3eWKoa3U4?si=azIl2tRfEJhD7PQJ',
+                '70RTp-udCys?si=PQfrkKvx5rZaAUbn',
                 'HfEkwL0_n1Y?si=qa34wItEzRCiw1ne',
-                'HfEkwL0_n1Y?si=qa34wItEzRCiw1ne',
-                'HfEkwL0_n1Y?si=qa34wItEzRCiw1ne',
+                'uJtdgtm0Mhc?si=XgDDNcT7HGPbkcAt',
                 'NMJcTbhDMqc?si=nf7FvYRbZSbKAv8A',
             ],
-            offset: 0
+            offset: 0,
+            playingVideo: null
         }
     },
     created() {
@@ -40,13 +43,15 @@ export default {
         },
     },
     methods: {
+        playVideo(idx) {
+            return this.playingVideo === idx ? 'played-video' : ''
+        },
         getPosition(index) {
-            var middleIndex = Math.floor(this.videos.length / 2) - this.offset;
+            var middleIndex = this.middleVideo - this.offset;
             if (middleIndex < 0) {
                 let reduceFromEnd = middleIndex
                 middleIndex = this.videos.length + reduceFromEnd
             }
-            console.log(middleIndex);
             if (index === middleIndex) {
                 return '';
             } else if (index + 1 === middleIndex || index - 1 === middleIndex ||
@@ -58,10 +63,16 @@ export default {
         },
         slide(dir) {
             this.offset = (this.offset + dir + this.videos.length) % this.videos.length;
+            console.log(this.offset, 'one');
         },
-        showVideo(idx){
-            console.log(1);
-            this.offset = 1
+        showVideo(idx) {
+            var middleIndex = this.middleVideo;
+            if (middleIndex - idx < 0) {
+                this.offset = this.videos.length + middleIndex - idx
+            } else this.offset = middleIndex - idx
+
+            this.playingVideo = idx
+            console.log(this.playingVideo);
         }
     }
 
