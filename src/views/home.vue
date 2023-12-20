@@ -12,7 +12,13 @@
       </form>
       <div class="details">
         <h2>come learn with us</h2>
-        <p>bla bla bla</p>
+        <p>היי, אנחנו יצחק ומרים, מוזיקאים ונשואים 😊
+          עברנו לא מזמן לתל אביב העיר הגדולה ממושב קטן בשפלה.
+          הכרנו בלימודי מוזיקה, והשאר היסטוריה...
+          מזמינים אתכם ללמוד איתנו שיעורי נגינה בכלי שאתם רוצים
+          החל מאנשים שמעולם לא נגעו בכלי נגינה, ועד אנשים שכבר למדו כמה שנים, ורוצים להעמיק עוד ולהתפתח. מילדים בגיל 6 ועד
+          מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד 😊
+        </p>
         <img
           src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
           alt="pic">
@@ -39,10 +45,10 @@ export default {
   data() {
     return {
       instruments: [
-      { name: 'guitar', img: 'https://images.unsplash.com/photo-1525201548942-d8732f6617a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'},
-      {  name: 'piano', img: 'https://images.unsplash.com/photo-1612016410921-264f6afed556?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'},
-      {  name: 'harmonica', img: 'https://images.unsplash.com/photo-1682271920907-781daffc09a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80'},
-      {  name: 'bass', img: 'https://images.unsplash.com/photo-1602900332980-6e6f13946a3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'}
+        { name: 'guitar', img: 'https://images.unsplash.com/photo-1525201548942-d8732f6617a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+        { name: 'piano', img: 'https://images.unsplash.com/photo-1612016410921-264f6afed556?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+        { name: 'harmonica', img: 'https://images.unsplash.com/photo-1682271920907-781daffc09a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80' },
+        { name: 'bass', img: 'https://images.unsplash.com/photo-1602900332980-6e6f13946a3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' }
       ]
     }
   },

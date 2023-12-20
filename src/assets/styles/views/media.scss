@@ -1,86 +1,84 @@
-.media-container {
-    // height: 100vh;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // justify-content: center;
-    // overflow: hidden;
-    overflow-x: hidden;
-
-    .videos-container {
-        display: flex;
+@media (min-width : 600px) {
+    .media-container {
         overflow-x: hidden;
-        padding-block: 200px;
-        align-items: center;
-        position: relative;
 
-        .video-container {
-            position: absolute;
-            z-index: 100;
-            transition: 2s;
+        .videos-container {
+            display: flex;
+            overflow-x: hidden;
+            padding-block: 200px;
+            align-items: center;
+            position: relative;
 
-            iframe {
-                transition: 2s;
-                border-radius: 20px;
-                flex: 1;
-                width: 310px;
-                height: 200px;
-                transform: scale(1.2);
-            }
-
-            .video-cover {
-                transform: scale(1.2);
-                border-radius: 20px;
-                width: 100%;
-                height: 100%;
+            .video-container {
                 position: absolute;
-                top: 0;
-                left: 0;
-                background-color: rgba(255, 255, 255, 0.123);
-                transition: 0.5s;
+                z-index: 100;
+                transition: 2s;
 
-                &:hover {
-                    cursor: pointer;
-                    background-color: transparent;
+                iframe {
+                    transition: 2s;
+                    border-radius: 20px;
+                    flex: 1;
+                    width: 310px;
+                    height: 200px;
+                    transform: scale(1.2);
+                }
+
+                .video-cover {
+                    transform: scale(1.2);
+                    border-radius: 20px;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: rgba(255, 255, 255, 0.123);
+                    transition: 0.5s;
+
+                    &:hover {
+                        cursor: pointer;
+                        background-color: transparent;
+                    }
+
                 }
 
             }
 
+            .played-video {
+                iframe {
+                    transform: scale(2);
+                }
+
+                .video-cover {
+                    display: none;
+                }
+            }
+
+            .small-video {
+                z-index: 80;
+
+                iframe {
+                    transform: scale(1);
+                }
+
+                .video-cover {
+                    transform: scale(1);
+                }
+            }
+
+            .medium-video {
+                z-index: 90;
+
+                iframe {
+                    transform: scale(1.1);
+                }
+
+                .video-cover {
+                    transform: scale(1.1);
+                }
+            }
         }
 
-        .played-video {
-            iframe {
-                transform: scale(2);
-            }
 
-            .video-cover {
-                display: none;
-            }
-        }
-
-        .small-video {
-            z-index: 80;
-
-            iframe {
-                transform: scale(1);
-            }
-
-            .video-cover {
-                transform: scale(1);
-            }
-        }
-
-        .medium-video {
-            z-index: 90;
-
-            iframe {
-                transform: scale(1.1);
-            }
-
-            .video-cover {
-                transform: scale(1.1);
-            }
-        }
     }
 
     .arrow {
@@ -93,11 +91,37 @@
 
         }
     }
-
-    .right-arrow {
-        transform: rotate(180deg) translateY(3px);
-    }
-
 }
 
-@media (max-width : 600px) {}
+
+.right-arrow {
+    transform: rotate(180deg) translateY(3px);
+}
+
+@media (max-width : 600px) {
+    .media-container {
+        display: flex;
+        padding-inline: 25px;
+
+        .videos-container {
+            width: 100%;
+            display: flex;
+            // justify-content: center;
+            align-items: center;
+            overflow-x: scroll;
+            gap: 25px;
+
+            .video-container {
+                transform: translate(0%, 0%) !important;
+
+                iframe {
+                    border-radius: 20px;
+                }
+            }
+        }
+
+        .arrow {
+            display: none;
+        }
+    }
+}

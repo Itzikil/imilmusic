@@ -7,6 +7,11 @@ header {
     font-size: 1.6rem;
     background-color: transparent;
 
+    .logo {
+        width: 10px;
+        // height: 80px;
+    }
+
     .loggedin-user {
         background-color: $clr1;
         padding: 2px 8px;
