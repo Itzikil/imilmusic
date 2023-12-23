@@ -1,9 +1,10 @@
 <template>
   <section class="container home text-center">
     <!-- <h1>I & M</h1> -->
-    <!-- <img src="@/assets/imgs/sheets.svg" alt="" class="sheets-background"> -->
+    <img src="@/assets/imgs/sheets.svg" alt="" class="sheets-background">
     <div class="hero-container">
       <form class="message-box">
+        <img src="@/assets/imgs/sheetsWhite.svg" alt="" class="sheets-background">
         <h3>leave us your details now</h3>
         <input type="text">
         <input type="text">
@@ -12,24 +13,32 @@
       </form>
       <div class="details">
         <h2>come learn with us</h2>
-        <p>היי, אנחנו יצחק ומרים, מוזיקאים ונשואים 😊
+        <p>היי, אנחנו יצחק ומרים, מוזיקאים נשואים
+        </p>
+        <p>
           עברנו לא מזמן לתל אביב העיר הגדולה ממושב קטן בשפלה.
           הכרנו בלימודי מוזיקה, והשאר היסטוריה...
           מזמינים אתכם ללמוד איתנו שיעורי נגינה בכלי שאתם רוצים
           החל מאנשים שמעולם לא נגעו בכלי נגינה, ועד אנשים שכבר למדו כמה שנים, ורוצים להעמיק עוד ולהתפתח. מילדים בגיל 6 ועד
           מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד 😊
         </p>
-        <img
+        <div class="recommand-container">
+          <div class="recommand" v-for="(recommand , idx) in recommandations" :class="{'active-recommand ': idx === activeRecomman, 'close-recommand': idx === nextRecomman }">
+            <p>{{ recommand.rec }}</p>
+            <p>- <span class="bold">{{ recommand.name }} </span> {{ recommand.age }}</p>
+          </div>
+        </div>
+        <!-- <img
           src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-          alt="pic">
+          alt="pic"> -->
       </div>
     </div>
     <div class="instruments-container">
-      <div v-for="instument in instruments" :key="instument.name" class="instrument">
-        <h4>{{ instument.name }}</h4>
-        <div class="img-container">
-          <img :src=instument.img alt="pic">
-        </div>
+      <div v-for="instrument in instruments" :key="instrument.name" class="instrument">
+        <h4 :data-trans=instrument.name>{{ instrument.name }}</h4>
+        <router-link :to="`/lesson/` + instrument.name" class="img-container">
+          <img :src=instrument.img alt="pic">
+        </router-link>
       </div>
     </div>
     <!-- <h5 class="text-center">
@@ -49,14 +58,30 @@ export default {
         { name: 'piano', img: 'https://images.unsplash.com/photo-1612016410921-264f6afed556?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
         { name: 'harmonica', img: 'https://images.unsplash.com/photo-1682271920907-781daffc09a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80' },
         { name: 'bass', img: 'https://images.unsplash.com/photo-1602900332980-6e6f13946a3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' }
-      ]
+      ],
+      recommandations: [
+        { name: 'Heni peni', rec: 'I loved those lessons i wish i  ', age: 20 },
+        { name: 'Heni peni', rec: 'I loved those lessons i wish i  please ', age: 20 },
+        { name: 'Heni ni', rec: 'I loved those lessons i wish i caoud lean more please ', age: 20 },
+        { name: 'He peni', rec: 'I loved those lessons i wish i caoud lean m ', age: 20 },
+        { name: 'Heni peni', rec: 'I loved those lessons  i caoud lean more please ', age: 20 },
+      ],
+      activeRecomman: 0,
+      nextRecomman: 0
     }
-  },
-  computed: {
   },
   created() {
   },
+  mounted() {
+    setInterval(this.animateBoxes, 5000);
+  },
+  computed: {
+  },
   methods: {
+      animateBoxes() {
+        this.activeRecomman = (this.activeRecomman + 1) % this.recommandations.length;
+        this.nextRecomman = (this.activeRecomman + 1) % this.recommandations.length;
+    }
   }
 
 }

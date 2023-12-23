@@ -1,14 +1,132 @@
-.background-image-container {
-    background-image: url('@/assets/imgs/background.jpeg'); // Use the imported image
-    background-size: cover; // Adjusts the image size to cover the entire container
-    background-position: center; // Centers the image horizontally and vertically
-    background-repeat: no-repeat; // Prevents image from repeating
-    // height: 91vh; // Sets the container height to the viewport height
-    flex: 1;
+// .background-image-container {
+//     background-image: url('@/assets/imgs/background.jpeg'); // Use the imported image
+//     background-size: cover; // Adjusts the image size to cover the entire container
+//     background-position: center; // Centers the image horizontally and vertically
+//     background-repeat: no-repeat; // Prevents image from repeating
+//     // height: 91vh; // Sets the container height to the viewport height
+//     flex: 1;
+//   }
+.lesson-container {
+  display: flex;
+  flex-direction: column;
+  color: $clr5;
+  width: 100%;
+
+  .note-book {
+    display: flex;
+    width: 100%;
+
+    .instrument-name {
+      text-transform: capitalize;
+    }
+
+    .guitar {
+      background-color: $clr1;
+    }
+
+    .piano {
+      background-color: $clr2;
+    }
+
+    .harmonica {
+      background-color: $clr3;
+    }
+
+    .bass {
+      background-color: $clr4;
+    }
+
+    .bookmarks {
+      display: flex;
+      flex-direction: column;
+      flex: 1.4;
+      align-items: end;
+
+      >* {
+        cursor: pointer;
+        opacity: 0.6;
+        width: 125px;
+        height: 40px;
+        border-bottom-left-radius: 7px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+          margin: 0;
+        }
+
+        // height: 100%;
+
+        &:hover {
+          opacity: 0.8;
+          transition: 0.4s;
+        }
+      }
+
+      .current-instrument {
+        opacity: 1;
+        transition: 0.3s;
+        width: 150px;
+        border-top-left-radius: 7px;
+        z-index: 20;
+      }
+    }
+
+    .instrument-pages {
+      flex: 1;
+      position: relative;
+
+      >* {
+        position: absolute;
+        width: 350px;
+        max-height: fit-content;
+        min-height: 400px;
+        opacity: 0;
+        transition: 0.5;
+        border-radius: 7px;
+        border-top-left-radius: 0px;
+        padding: 10px;
+      }
+
+      .guitar {}
+
+      .piano {}
+
+      .harmonica {}
+
+      .bass {}
+
+      .current-instrument {
+        z-index: 10;
+        opacity: 1;
+      }
+
+    }
+
   }
 
-  .bold-link{
-    font-weight: 700;
-    font-size: larger;
-    list-style: none;
+  @media (max-width : 600px) {
+    .note-book {
+      .bookmarks {
+        flex: 0.5;
+        font-size: 15px;
+        >* {
+          width: 85px;
+        }
+        
+        .current-instrument {
+          width: 100px;
+          font-size: 16px;
+        }
+      }
+
+      .instrument-pages {
+        >* {
+          width: 200px;
+        }
+      }
+    }
   }
+
+}

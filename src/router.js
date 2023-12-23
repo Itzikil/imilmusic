@@ -53,7 +53,7 @@ const routes = [
     component: media
   },
   {
-    path: '/lesson',
+    path: '/lesson/:id?',
     name: 'lesson',
     component: lesson
   },

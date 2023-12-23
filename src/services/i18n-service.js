@@ -8,6 +8,26 @@ export const i18Service = {
 }
 
 var gTrans = {
+    'guitar': {
+        en: 'guitar',
+        he: 'גיטרה',
+    },
+    'piano': {
+        en: 'piano',
+        he: 'פסנתר',
+    },
+    'harmonica': {
+        en: 'harmonica',
+        he: 'מפוחית',
+    },
+    'bass': {
+        en: 'bass',
+        he: 'בס',
+    },
+    'Lessons': {
+        en: 'Lessons',
+        he: 'שיעורים',
+    },
     'Contact us': {
         en: 'Contact us',
         he: 'צרו איתנו קשר',
@@ -43,7 +63,6 @@ let gCurrLang = storageService.load('lang') || Intl.DateTimeFormat().resolvedOpt
 
 function doTrans() {
     const els = document.querySelectorAll('[data-trans]')
-    console.log(els);
     els.forEach(el => {
         const transKey = el.dataset.trans
         const trans = getTrans(transKey)
@@ -63,7 +82,6 @@ function getTrans(transKey) {
 
 function setLang(lang = gCurrLang) {
     gCurrLang = lang
-    console.log(lang);
     // if (lang === 'he') document.body.classList.add('rtl')
     // else document.body.classList.remove('rtl')
     storageService.store('lang', gCurrLang)
