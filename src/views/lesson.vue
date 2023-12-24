@@ -19,11 +19,6 @@
         <div>
             <P>אנחנו מלמדים בבית שלנו</P>
         </div>
-
-        <!-- <h5 class="text-center">we do a private lessons at our home studio</h5>
-            <h5 class="text-center">for more information</h5>
-            <router-link to="/contact" class="bold-link">Click Here</router-link> -->
-        <!-- <img src="../assets/imgs/background.jpeg" alt="hi"> -->
     </section>
 </template>
   
@@ -49,8 +44,7 @@ export default {
     },
     created() {
         const id = this.$route.params.id
-        if (id) { this.currentInstrument = id }
-        console.log(id);
+        if (id) this.currentInstrument = id
     },
     mounted() {
         i18Service.setLang()

@@ -8,6 +8,14 @@ export const i18Service = {
 }
 
 var gTrans = {
+    'itzik-text':{
+        en: `Guitarist, pianist, singer - creator I learned from top-class musicians as well as certificate studies at the "Mazmor" high school of music.
+        Music has always had a special meaning for me. I believe that it should be treated gently, with great listening and given a place of honor
+        I am happy to teach anyone whose heart desires, anyone who is curious and searches and loves to have fun`,
+        he:`גיטריסט, פסנתרן, זמר - יוצר
+        למדתי מנגנים מהשורה הראשונה וכן לימודי תעודה בביה"ס הגבוה למוזיקה "מזמור". למוזיקה תמיד היתה משמעות מיוחדת עבורי. אני מאמין שצריך להתייחס אליה בעדינות, בהקשבה גדולה ולתת לה מקום של כבוד
+        אני שמח ללמד את כל מי שליבו חפץ, את כל מי שסקרן ומחפש ואוהב להינות`,
+    },
     'guitar': {
         en: 'guitar',
         he: 'גיטרה',

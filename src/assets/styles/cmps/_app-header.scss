@@ -7,9 +7,27 @@ header {
     font-size: 1.6rem;
     background-color: transparent;
 
-    .logo {
-        width: 10px;
-        // height: 80px;
+    .logo-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        .logo {
+            width: 10px;
+            // height: 80px;
+        }
+
+        .trans-btn {
+            width: 50px;
+            background-color: transparent;
+            position: absolute;
+            left: 1%;
+
+            img {
+                width: 100%;
+            }
+        }
     }
 
     .loggedin-user {
@@ -46,7 +64,11 @@ header {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 100vw;
+            width: 100%;
+
+            .rtl{
+                flex-direction: row-reverse;
+            }
         }
 
         .header-line {
@@ -68,6 +90,28 @@ header {
         }
     }
 
+    @media (max-width: 700px) {
+        .logo-container {
+
+            .trans-btn {
+                width: 40px;
+            }
+        }
+
+        nav {
+            overflow-x: hidden;
+
+            .link-container {
+                width: 800%;
+
+                .header-line {
+
+                    margin-inline: 7px;
+                }
+            }
+        }
+
+    }
 
 
 }

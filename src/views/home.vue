@@ -1,14 +1,13 @@
 <template>
   <section class="container home text-center">
-    <!-- <h1>I & M</h1> -->
-    <img src="@/assets/imgs/sheets.svg" alt="" class="sheets-background">
+    <!-- <img src="@/assets/imgs/sheets.svg" alt="" class="sheets-background"> -->
     <div class="hero-container">
       <form class="message-box">
         <img src="@/assets/imgs/sheetsWhite.svg" alt="" class="sheets-background">
         <h3>leave us your details now</h3>
-        <input type="text">
-        <input type="text">
-        <input type="text">
+        <input type="text" placeholder="name">
+        <input type="text" placeholder="email/phone">
+        <input type="text" placeholder="subject">
         <button>send</button>
       </form>
       <div class="details">
@@ -23,32 +22,27 @@
           מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד 😊
         </p>
         <div class="recommand-container">
-          <div class="recommand" v-for="(recommand , idx) in recommandations" :class="{'active-recommand ': idx === activeRecomman, 'close-recommand': idx === nextRecomman }">
+          <div class="recommand" v-for="(recommand, idx) in recommandations"
+            :class="{ 'active-recommand ': idx === activeRecommand, 'close-recommand': idx === nextRecommand }">
             <p>{{ recommand.rec }}</p>
             <p>- <span class="bold">{{ recommand.name }} </span> {{ recommand.age }}</p>
           </div>
         </div>
-        <!-- <img
-          src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-          alt="pic"> -->
       </div>
     </div>
     <div class="instruments-container">
       <div v-for="instrument in instruments" :key="instrument.name" class="instrument">
-        <h4 :data-trans=instrument.name>{{ instrument.name }}</h4>
         <router-link :to="`/lesson/` + instrument.name" class="img-container">
+          <h4 :data-trans=instrument.name>{{ instrument.name }}</h4>
           <img :src=instrument.img alt="pic">
         </router-link>
       </div>
     </div>
-    <!-- <h5 class="text-center">
-      Powered up Frontend 
-    </h5> -->
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
   </section>
 </template>
 
 <script>
+import { i18Service } from '../services/i18n-service.js'
 export default {
   name: 'home',
   data() {
@@ -66,21 +60,23 @@ export default {
         { name: 'He peni', rec: 'I loved those lessons i wish i caoud lean m ', age: 20 },
         { name: 'Heni peni', rec: 'I loved those lessons  i caoud lean more please ', age: 20 },
       ],
-      activeRecomman: 0,
-      nextRecomman: 0
+      activeRecommand: 0,
+      nextRecommand: 1
     }
   },
   created() {
   },
   mounted() {
+    i18Service.setLang()
+    i18Service.doTrans()
     setInterval(this.animateBoxes, 5000);
   },
   computed: {
   },
   methods: {
-      animateBoxes() {
-        this.activeRecomman = (this.activeRecomman + 1) % this.recommandations.length;
-        this.nextRecomman = (this.activeRecomman + 1) % this.recommandations.length;
+    animateBoxes() {
+      this.activeRecommand = (this.activeRecommand + 1) % this.recommandations.length;
+      this.nextRecommand = (this.activeRecommand + 1) % this.recommandations.length;
     }
   }
 

@@ -1,21 +1,21 @@
 <template>
   <header>
     <nav>
-      <div>
+      <div class="logo-container">
         <router-link to="/"> <span role="img" aria-label="logo">I & M</span>
           <!-- <img src="../assets/logo.svg" alt="" class="logo">  -->
         </router-link>
-        <button @click="translate">translate</button>
+        <button @click="translate" class="trans-btn"><img src="../assets/imgs/language-icon.svg" alt=""></button>
       </div>
-      <div class="link-container">
-        <!-- <router-link to="/review">Reviews</router-link>
-        <router-link to="/chat">Chat</router-link> -->
+      <div :class="['link-container', navDieraction]">
         <div class="header-line"></div>
-        <router-link to="/media" data-trans="Media">Media</router-link>
         <router-link to="/lesson" data-trans="Lessons">Lessons</router-link>
+        <router-link to="/media" data-trans="Media">Media</router-link>
         <router-link to="/contact" data-trans="Contact">Contact</router-link>
         <router-link to="/about" data-trans="About">About</router-link>
         <div class="header-line"></div>
+        <!-- <router-link to="/review">Reviews</router-link>
+        <router-link to="/chat">Chat</router-link> -->
       </div>
     </nav>
     <!-- <section class="loggedin-user" v-if="loggedInUser">
@@ -32,6 +32,11 @@
 import { i18Service } from '../services/i18n-service.js';
 
 export default {
+  data() {
+    return {
+      currLang: i18Service.getTransLang()
+    }
+  },
   created() {
   },
   mounted() {
@@ -42,14 +47,17 @@ export default {
     loggedInUser() {
       return this.$store.getters.loggedinUser
     },
+    navDieraction() {
+      return this.currLang === 'he' ? 'rtl' : ''
+    }
   },
   methods: {
     translate() {
       let lang = i18Service.getTransLang()
-      console.log(lang);
       lang = (lang === 'en' || lang === 'en-US') ? 'he' : 'en'
       i18Service.setLang(lang)
       i18Service.doTrans()
+      this.currLang = i18Service.getTransLang()
     }
   }
 }

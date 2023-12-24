@@ -28,6 +28,7 @@
             </div>
             <div class="about-text second-text">
                 <p class="bold">יצחק</p>
+                <!-- <p data-trans="itzik-text"></p> -->
                 <p>גיטריסט, פסנתרן, זמר - יוצר
                 </p>
                 <p>
