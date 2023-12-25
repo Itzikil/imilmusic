@@ -17,17 +17,15 @@
         <p>היי, אנחנו יצחק ומרים, מוזיקאים נשואים
         </p>
         <p>
-          עברנו לא מזמן לתל אביב העיר הגדולה ממושב קטן בשפלה.
-          הכרנו בלימודי מוזיקה, והשאר היסטוריה...
           מזמינים אתכם ללמוד איתנו שיעורי נגינה בכלי שאתם רוצים
           החל מאנשים שמעולם לא נגעו בכלי נגינה, ועד אנשים שכבר למדו כמה שנים, ורוצים להעמיק עוד ולהתפתח. מילדים בגיל 6 ועד
-          מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד 😊
+          מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד 
         </p>
         <div class="recommand-container">
           <div class="recommand" v-for="(recommand, idx) in recommandations"
             :class="{ 'active-recommand ': idx === activeRecommand, 'close-recommand': idx === nextRecommand }">
             <p>{{ recommand.rec }}</p>
-            <p>- <span class="bold">{{ recommand.name }} </span> {{ recommand.age }}</p>
+            <p><span class="bold">{{ recommand.name }} </span> {{ recommand.age }} - </p>
           </div>
         </div>
       </div>
@@ -56,7 +54,8 @@ export default {
         { name: 'bass', img: 'https://images.unsplash.com/photo-1602900332980-6e6f13946a3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' }
       ],
       recommandations: [
-        { name: 'Heni peni', rec: 'I loved those lessons i wish i  ', age: 20 },
+        { name: 'נעם אביסדריס', rec: `זכיתי ללמוד אצל יצחק גיטרה.יצחק מורה מדהים מלמד מצוין משקיע ומסביר טוב
+יש לו המון סבלנות ואנרגיות טובות`, age: 13 },
         { name: 'Heni peni', rec: 'I loved those lessons i wish i  please ', age: 20 },
         { name: 'Heni ni', rec: 'I loved those lessons i wish i caoud lean more please ', age: 20 },
         { name: 'He peni', rec: 'I loved those lessons i wish i caoud lean m ', age: 20 },

@@ -2,13 +2,14 @@
     <section class="container lesson-container text-center background-image-container">
         <h1 data-trans="Lessons">Lessons</h1>
         <div>
-            <P>השיעורים מתקיימים אצלנו בבית באווירה נעימה עם עוגיות</P>
+            <p>השיעורים מתקיימים אצלנו בבית באווירה נעימה עם עוגיות</p>
         </div>
         <div class="note-book">
             <div class="bookmarks">
-                <div v-for="instrument in instruments" :class="[instrument, displayInstrument(instrument)]"
+                <div v-for="(instrument,idx) in instruments" :class="[instrument, displayInstrument(instrument)]"
                     :key="instrument + 1" @click="chooseInstrument(instrument)">
                     <p class="bold instrument-name" :data-trans=instrument>{{ instrument }}</p>
+                    <img :src=imgs[idx] alt="">
                 </div>
             </div>
             <div class="instrument-pages">
@@ -24,6 +25,10 @@
   
 <script>
 import { i18Service } from '../services/i18n-service.js'
+import guitarImg from '../assets/imgs/guitar.svg'
+import pianoImg from '../assets/imgs/piano.svg'
+import harmonicaImg from '../assets/imgs/harmonica.svg'
+import bassImg from '../assets/imgs/bass.svg'
 export default {
     name: 'home',
     data() {
@@ -39,7 +44,8 @@ export default {
                   dolorem voluptatem impedit beatae provident voluptate sit asperiores fugiat dolorum deleniti ratione ea facilis magnam.`,
                 bass: ` bassLorem ipsum dolor sit amet consectetur adipisicing elit. Facere totam eaque, odit reprehenderit inventore voluptatibus
                   dolorem voluptatem impedit beatae provident voluptate sit asperiores fugiat dolorum .`,
-            }
+            },
+            imgs: [guitarImg , pianoImg , harmonicaImg , bassImg]
         }
     },
     created() {
@@ -58,7 +64,7 @@ export default {
         },
         chooseInstrument(instrument) {
             this.currentInstrument = instrument
-        }
+        },
     }
 
 }
