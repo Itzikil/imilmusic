@@ -1,7 +1,9 @@
 <template>
     <section class="container lesson-container text-center background-image-container">
         <h1 data-trans="Lessons">Lessons</h1>
-
+        <div>
+            <P>השיעורים מתקיימים אצלנו בבית באווירה נעימה עם עוגיות</P>
+        </div>
         <div class="note-book">
             <div class="bookmarks">
                 <div v-for="instrument in instruments" :class="[instrument, displayInstrument(instrument)]"
@@ -16,9 +18,7 @@
                 </div>
             </div>
         </div>
-        <div>
-            <P>אנחנו מלמדים בבית שלנו</P>
-        </div>
+
     </section>
 </template>
   

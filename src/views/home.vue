@@ -2,13 +2,15 @@
   <section class="container home text-center">
     <!-- <img src="@/assets/imgs/sheets.svg" alt="" class="sheets-background"> -->
     <div class="hero-container">
-      <form class="message-box">
+      <form class="message-box"
+        action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd7m5jbJeIyGfLR0BM2uTFs6LX_qPRwITaxiEN1eGa_tnOOGQ/formResponse">
         <img src="@/assets/imgs/sheetsWhite.svg" alt="" class="sheets-background">
-        <h3>leave us your details now</h3>
-        <input type="text" placeholder="name">
-        <input type="text" placeholder="email/phone">
-        <input type="text" placeholder="subject">
-        <button>send</button>
+        <h3>Leave us your details now</h3>
+        <p>Or <router-link to="/contact" class="bold"> Contact with us</router-link></p>
+        <input type="text" placeholder="name" name="entry.730517852">
+        <input type="text" placeholder="email/phone" name="entry.592601501">
+        <input type="text" placeholder="subject" name="entry.211603254">
+        <button type="submit">send</button>
       </form>
       <div class="details">
         <h2>come learn with us</h2>

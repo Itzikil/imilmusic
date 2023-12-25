@@ -1,13 +1,24 @@
 @media (min-width : 600px) {
     .media-container {
-        overflow-x: hidden;
+        // display: flex;
+        // overflow-x: hidden;
+        // flex-direction: column;
+        // align-items: center;
+        // justify-items: center;
 
         .videos-container {
+            margin: auto;
             display: flex;
             overflow-x: hidden;
             padding-block: 200px;
             align-items: center;
             position: relative;
+
+            //for now
+            @media (min-width : 1500px) {
+                padding-inline: 7%;
+
+            }
 
             .video-container {
                 position: absolute;
@@ -45,7 +56,7 @@
 
             .played-video {
                 iframe {
-                    transform: scale(2);
+                    transform: scale(1.7);
                 }
 
                 .video-cover {

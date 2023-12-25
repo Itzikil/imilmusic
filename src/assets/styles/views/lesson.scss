@@ -108,22 +108,40 @@
 
   @media (max-width : 600px) {
     .note-book {
+      flex-direction: column;
+
       .bookmarks {
-        flex: 0.5;
         font-size: 15px;
+        flex-direction: row;
+        flex: none;
+        height: 60px;
+        transform: translateY(1px);
+
         >* {
-          width: 85px;
+          flex: 1;
+          border-radius: 0;
         }
-        
+
+        >:first-child {
+          border-top-left-radius: 5px;
+        }
+
+        >:last-child {
+          border-top-right-radius: 5px;
+        }
+
         .current-instrument {
-          width: 100px;
+          border-top-right-radius: 5px;
+          border-top-left-radius: 5px;
           font-size: 16px;
+          height: 50px;
         }
       }
 
       .instrument-pages {
         >* {
-          width: 200px;
+          border-top-right-radius: 0;
+          width: 100%;
         }
       }
     }
