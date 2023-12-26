@@ -1,25 +1,25 @@
 <template>
-    <section class="container lesson-container text-center background-image-container">
+    <section class="container lesson-container text-center">
         <h1 data-trans="Lessons">Lessons</h1>
-        <div>
+        <div class="second-container">
             <p>השיעורים מתקיימים אצלנו בבית באווירה נעימה עם עוגיות</p>
-        </div>
-        <div class="note-book">
-            <div class="bookmarks">
-                <div v-for="(instrument,idx) in instruments" :class="[instrument, displayInstrument(instrument)]"
-                    :key="instrument + 1" @click="chooseInstrument(instrument)">
-                    <p class="bold instrument-name" :data-trans=instrument>{{ instrument }}</p>
-                    <img :src=imgs[idx] alt="">
+            <div class="note-book">
+                <div class="bookmarks">
+                    <div v-for="(instrument, idx) in instruments" :class="[instrument, displayInstrument(instrument)]"
+                        :key="instrument + 1" @click="chooseInstrument(instrument)">
+                        <p class="bold instrument-name" :data-trans=instrument>{{ instrument }}</p>
+                        <img :src=imgs[idx] alt="">
+                    </div>
+                </div>
+                <div class="instrument-pages">
+                    <div v-for="instrument in instruments" :class="[instrument, displayInstrument(instrument)]"
+                        :key=instrument>
+                        <h3 class="instrument-name" :data-trans=instrument>{{ instrument }}</h3>
+                        <p>{{ this.instrumentText[instrument] }}</p>
+                    </div>
                 </div>
             </div>
-            <div class="instrument-pages">
-                <div v-for="instrument in instruments" :class="[instrument, displayInstrument(instrument)]" :key=instrument>
-                    <h3 class="instrument-name" :data-trans=instrument>{{ instrument }}</h3>
-                    <p>{{ this.instrumentText[instrument] }}</p>
-                </div>
-            </div>
         </div>
-
     </section>
 </template>
   
@@ -36,16 +36,12 @@ export default {
             currentInstrument: 'guitar',
             instruments: ['guitar', 'piano', 'harmonica', 'bass'],
             instrumentText: {
-                guitar: ` guitarLorem ipsum dolor sit amet consectetur adipisicing elit. Facere totam eaque, odit reprehenderit inventore voluptatibus
-                  dolorem voluptatem impedit beatae provident voluptate sit asperiores fugiat dolorum deleniti ratione ea facilis magnam.`,
-                piano: ` pianoLorem ipsum dolor sit amet consectetur adipisicing elit. Facere totam eaque, odit reprehenderit inventore voluptatibus
-                  dolorem voluptatem impedit beatae provident voluptate sit asperiores fugiat dolorum deleniti ratione ea facilis magnam.`,
-                harmonica: ` harmonicaLorem ipsum dolor sit amet consectetur adipisicing elit. Facere totam eaque, odit reprehenderit inventore voluptatibus
-                  dolorem voluptatem impedit beatae provident voluptate sit asperiores fugiat dolorum deleniti ratione ea facilis magnam.`,
-                bass: ` bassLorem ipsum dolor sit amet consectetur adipisicing elit. Facere totam eaque, odit reprehenderit inventore voluptatibus
-                  dolorem voluptatem impedit beatae provident voluptate sit asperiores fugiat dolorum .`,
+                guitar: `  נלמד גיטרה קלאסית / אקוסטית / חשמלית , נתחיל במנגינות פשוטות ואקורדים פשוטים משם נעבור לתאוריה לאקורדים מורכבים יותר עם סגנונות שונים כמו ג'אז בלוז גוספל ועוד עד שנוכל לנגן כל שיר שנרצה, נעבוד בתכנית מסודרת כדי להבטיח שלא נדלג על שלבים חיוניים והתקדמות בריאה ויציבה`,
+                piano: ` נלמד גיטרה קלאסית / אקוסטית / חשמלית , נתחיל במנגינות פשוטות ואקורדים פשוטים משם נעבור לאקורדים מורכבים יותר וסגנונות שונים כמו ג'אז בלוז גוספל ועוד עד שנוכל לנגן כל שיר שנרצ`,
+                harmonica: `  נלמד גיטרה קלאסית / אקוסטית / חשמלית , נתחיל במנגינות פשוטות ואקורדים פשוטים משם נעבור לאקורדים מורכבים יותר וסגנונות שונים כמו ג'אז בלוז גוספל ועוד עד שנוכל לנגן כל שיר שנרצ`,
+                bass: ` מלמד בצורה בסיסית, הכרת הכלי על בוריו, איפה כל צליל נמצא על הגיטרה ומתי לנגן ואיך. מתאים למתחילים`,
             },
-            imgs: [guitarImg , pianoImg , harmonicaImg , bassImg]
+            imgs: [guitarImg, pianoImg, harmonicaImg, bassImg]
         }
     },
     created() {

@@ -16,6 +16,38 @@ var gTrans = {
         למדתי מנגנים מהשורה הראשונה וכן לימודי תעודה בביה"ס הגבוה למוזיקה "מזמור". למוזיקה תמיד היתה משמעות מיוחדת עבורי. אני מאמין שצריך להתייחס אליה בעדינות, בהקשבה גדולה ולתת לה מקום של כבוד
         אני שמח ללמד את כל מי שליבו חפץ, את כל מי שסקרן ומחפש ואוהב להינות`,
     },
+    'Come learn with us': {
+        en: 'Come learn with us',
+        he: 'בואו ללמוד איתנו',
+    },
+    'Leave us your details': {
+        en: 'Leave us your details',
+        he: 'השאירו פרטים ונחזור אליכם',
+    },
+    'Or': {
+        en: 'Or',
+        he: 'או',
+    },
+    'Contact with us': {
+        en: 'Contact with us',
+        he: 'צרו קשר',
+    },
+    'name': {
+        en: 'name',
+        he: 'שם',
+    },
+    'tel/mail': {
+        en: 'tel/mail',
+        he: `ט'ל/מייל`,
+    },
+    'subject': {
+        en: 'subject',
+        he: 'נושא',
+    },
+    'send': {
+        en: 'send',
+        he: 'שלח',
+    },
     'guitar': {
         en: 'guitar',
         he: 'גיטרה',

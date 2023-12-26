@@ -5,26 +5,28 @@
       <form class="message-box"
         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd7m5jbJeIyGfLR0BM2uTFs6LX_qPRwITaxiEN1eGa_tnOOGQ/formResponse">
         <img src="@/assets/imgs/sheetsWhite.svg" alt="" class="sheets-background">
-        <h3>Leave us your details now</h3>
-        <p>Or <router-link to="/contact" class="bold"> Contact with us</router-link></p>
-        <input type="text" placeholder="name" name="entry.730517852">
-        <input type="text" placeholder="email/phone" name="entry.592601501">
-        <input type="text" placeholder="subject" name="entry.211603254">
-        <button type="submit">send</button>
+        <h3 data-trans="Leave us your details">Leave us your details</h3>
+        <p><span data-trans="Or"> Or </span> <router-link to="/contact" class="bold" data-trans="Contact with us"> Contact
+            with us</router-link></p>
+        <input type="text" placeholder="name" name="entry.730517852" data-trans="name">
+        <input type="text" placeholder="email/phone" name="entry.592601501" data-trans="tel/mail">
+        <input type="text" placeholder="subject" name="entry.211603254" data-trans="subject">
+        <button type="submit" data-trans="send">send</button>
       </form>
       <div class="details">
-        <h2>come learn with us</h2>
+        <h2 data-trans="Come learn with us">Come learn with us</h2>
         <p>היי, אנחנו יצחק ומרים, מוזיקאים נשואים
         </p>
         <p>
           מזמינים אתכם ללמוד איתנו שיעורי נגינה בכלי שאתם רוצים
           החל מאנשים שמעולם לא נגעו בכלי נגינה, ועד אנשים שכבר למדו כמה שנים, ורוצים להעמיק עוד ולהתפתח. מילדים בגיל 6 ועד
-          מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד 
+          מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד
         </p>
-        <div class="recommand-container">
+        <div class="recommand-container" @mouseenter="pauseAnimation" @mouseleave="resumeAnimation"
+          @touchstart="pauseAnimation" @touchend="resumeAnimation">
           <div class="recommand" v-for="(recommand, idx) in recommandations"
             :class="{ 'active-recommand ': idx === activeRecommand, 'close-recommand': idx === nextRecommand }">
-            <p>{{ recommand.rec }}</p>
+            <p :class="recFontSize(recommand.rec)">{{ recommand.rec }}</p>
             <p><span class="bold">{{ recommand.name }} </span> {{ recommand.age }} - </p>
           </div>
         </div>
@@ -54,15 +56,22 @@ export default {
         { name: 'bass', img: 'https://images.unsplash.com/photo-1602900332980-6e6f13946a3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' }
       ],
       recommandations: [
-        { name: 'נעם אביסדריס', rec: `זכיתי ללמוד אצל יצחק גיטרה.יצחק מורה מדהים מלמד מצוין משקיע ומסביר טוב
-יש לו המון סבלנות ואנרגיות טובות`, age: 13 },
-        { name: 'Heni peni', rec: 'I loved those lessons i wish i  please ', age: 20 },
+        {
+          name: 'נעם אביסדריס', rec: `זכיתי ללמוד אצל יצחק גיטרה, יצחק מורה מדהים מלמד מצוין משקיע ומסביר טוב
+יש לו המון סבלנות ואנרגיות טובות`, age: 13
+        },
+        {
+          name: 'חני', rec: `החלטתי בגיל 50 להגשים חלום ילדות, ללמוד לנגן בפסנתר. זו היתה בשבילי התחלה חדשה, וחיפשתי מישהי שתלמד אותי.
+         ב''ה הגעתי למרים המתוקה, שקיבלה אותי תמיד בחיוך מאיר, שלימדה אותי שלב אחרי שלב במקצועיות ובסבלנות,
+         עודדה ותיקנה ודייקה. נהנתי מכל שיעור, שמחתי להגיע וללמוד, ממליצה בחום....בהצלחה לכולם`, age: 51
+        },
         { name: 'Heni ni', rec: 'I loved those lessons i wish i caoud lean more please ', age: 20 },
         { name: 'He peni', rec: 'I loved those lessons i wish i caoud lean m ', age: 20 },
         { name: 'Heni peni', rec: 'I loved those lessons  i caoud lean more please ', age: 20 },
       ],
       activeRecommand: 0,
-      nextRecommand: 1
+      nextRecommand: 1,
+      isPaused: false,
     }
   },
   created() {
@@ -70,7 +79,11 @@ export default {
   mounted() {
     i18Service.setLang()
     i18Service.doTrans()
-    setInterval(this.animateBoxes, 5000);
+    this.animationInterval = setInterval(() => {
+      if (!this.isPaused) {
+        this.animateBoxes();
+      }
+    }, 3000);
   },
   computed: {
   },
@@ -78,8 +91,26 @@ export default {
     animateBoxes() {
       this.activeRecommand = (this.activeRecommand + 1) % this.recommandations.length;
       this.nextRecommand = (this.activeRecommand + 1) % this.recommandations.length;
+    },
+    pauseAnimation() {
+      this.isPaused = true;
+    },
+    resumeAnimation() {
+      this.isPaused = false;
+    },
+    recFontSize(p) {
+      console.log(p.length);
+      if (p.length > 200) {
+        return 'fs12'
+      } else if (p.length > 100) {
+        return 'fs14'
+      } else if (p.length > 50) {
+        return 'fs16'
+      } else return 'fs18'
     }
+  },
+  beforeDestroy() {
+    clearInterval(this.animationInterval);
   }
-
 }
 </script>
