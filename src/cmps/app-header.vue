@@ -7,7 +7,7 @@
       </div>
       <div :class="['link-container', navDieraction]">
         <div class="header-line"></div>
-        <router-link to="/lesson" data-trans="Lessons" :class="{ active: $route.path === '/lesson' }">Lessons</router-link>
+        <router-link to="/lesson" data-trans="Lessons" :class="{ active: isLessonActive }">Lessons</router-link>
         <router-link to="/media" data-trans="Media" :class="{ active: $route.path === '/media' }">Media</router-link>
         <router-link to="/contact" data-trans="Contact" :class="{ active: $route.path === '/contact' }">Contact</router-link>
         <router-link to="/about" data-trans="About" :class="{ active: $route.path === '/about' }">About</router-link>
@@ -47,6 +47,9 @@ export default {
     },
     navDieraction() {
       return this.currLang === 'he' ? 'rtl' : ''
+    },
+    isLessonActive(){
+      return this.$route.path.startsWith('/lesson');
     }
   },
   methods: {

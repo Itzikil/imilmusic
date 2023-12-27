@@ -1,17 +1,27 @@
 <template>
   <section class="container home text-center">
     <div class="hero-container">
-      <form class="message-box" 
+      <iframe name="hiddenConfirm" id="hiddenConfirm" style="display: none;"
+        onload="if(this.submitted){widow.location='imilmusic.com/lesson'}"></iframe>
+      <form class="message-box" id="myForm" method="POST" target="hiddenConfirm" @submit="this.submitted = true"
         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd7m5jbJeIyGfLR0BM2uTFs6LX_qPRwITaxiEN1eGa_tnOOGQ/formResponse">
         <img src="@/assets/imgs/sheetsWhite.svg" alt="" class="sheets-background">
         <h3 data-trans="Leave us your details">Leave us your details</h3>
-        <p><span data-trans="Or Contact with us"> Or Contact with us </span> <router-link to="/contact" class="bold" data-trans="Here"> Here </router-link>
+        <p><span data-trans="Or Contact with us"> Or Contact with us </span> <router-link to="/contact" class="bold"
+            data-trans="Here"> Here </router-link>
         </p>
-        <input type="text" placeholder="name" name="entry.730517852" data-trans="name">
-        <input type="text" placeholder="email/phone" name="entry.592601501" data-trans="tel/mail">
-        <input type="text" placeholder="subject" name="entry.211603254" data-trans="subject">
-        <button type="submit" data-trans="send" >send</button>
+        <input type="text" placeholder="name" name="entry.730517852" data-trans="name" v-model="formInputs.name">
+        <input type="text" placeholder="email/phone" name="entry.592601501" data-trans="tel/email"
+          v-model="formInputs.email">
+        <input type="text" placeholder="subject" name="entry.211603254" data-trans="subject" v-model="formInputs.subject">
+        <button type="submit" data-trans="send">send</button>
       </form>
+      <div v-if="this.submitted" class="submitted-container">
+        <!-- <p data-trans="Thank you">Thank you for your message we will back to you asap</p> -->
+        <p data-trans="Thank you">תודה שפניתם אלינו נחזור אליכם בהקדם</p>
+        <button @click="closeConfirm" data-trans="Close">סגור</button>
+        <!-- <button @click="closeConfirm" data-trans="Close">Close</button> -->
+      </div>
       <div class="details">
         <h2 data-trans="Come learn with us">Come learn with us</h2>
         <p>אנחנו יצחק ומרים, זוג מוזיקאים</p>
@@ -70,13 +80,19 @@ export default {
         },
         { name: 'עקיבא לבנדה', rec: 'הבן שלי למד גיטרה עם יצחק לוי. הוא מורה מקסים וקידם את הבן שלי בצורה משמעותית, ממליצה בחום', age: 13 },
         {
-          name: 'שניאור', rec: `ברצוננו להמליץ על המורה לנגינה יצחק בנינו הבכור
-           לומד אצלו מדי שבוע ומתקדם מאוד יפה יחס אישי וסבלנות רבה ממליצים בחום`, age: 12
+          name: 'שניאור', rec: `ברצוננו להמליץ על המורה לנגינה יצחק, בנינו הבכור
+           לומד אצלו מדי שבוע ומתקדם מאוד יפה, יחס אישי וסבלנות רבה ממליצים בחום`, age: 12
         },
       ],
       activeRecommand: 0,
       nextRecommand: 1,
       isPaused: false,
+      submitted: false,
+      formInputs: {
+        name: '',
+        email: '',
+        subject: ''
+      }
     }
   },
   created() {
@@ -112,9 +128,13 @@ export default {
         return 'fs16'
       } else return 'fs18'
     },
-    backHome() {
-      console.log('hi');
-      this.$router.push('/')
+    closeConfirm() {
+      this.submitted = false
+      this.formInputs = {
+        name: '',
+        email: '',
+        subject: ''
+      }
     }
   },
   beforeDestroy() {
