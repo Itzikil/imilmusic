@@ -1,17 +1,16 @@
 <template>
   <section class="container home text-center">
-    <!-- <img src="@/assets/imgs/sheets.svg" alt="" class="sheets-background"> -->
     <div class="hero-container">
-      <form class="message-box"
+      <form class="message-box" 
         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd7m5jbJeIyGfLR0BM2uTFs6LX_qPRwITaxiEN1eGa_tnOOGQ/formResponse">
         <img src="@/assets/imgs/sheetsWhite.svg" alt="" class="sheets-background">
         <h3 data-trans="Leave us your details">Leave us your details</h3>
-        <p><span data-trans="Or Contact with us"> Or Contact with us </span> <router-link to="/contact" class="bold" data-trans="Here">
-            Here</router-link></p>
+        <p><span data-trans="Or Contact with us"> Or Contact with us </span> <router-link to="/contact" class="bold" data-trans="Here"> Here </router-link>
+        </p>
         <input type="text" placeholder="name" name="entry.730517852" data-trans="name">
         <input type="text" placeholder="email/phone" name="entry.592601501" data-trans="tel/mail">
         <input type="text" placeholder="subject" name="entry.211603254" data-trans="subject">
-        <button type="submit" data-trans="send">send</button>
+        <button type="submit" data-trans="send" >send</button>
       </form>
       <div class="details">
         <h2 data-trans="Come learn with us">Come learn with us</h2>
@@ -71,7 +70,7 @@ export default {
         },
         { name: 'עקיבא לבנדה', rec: 'הבן שלי למד גיטרה עם יצחק לוי. הוא מורה מקסים וקידם את הבן שלי בצורה משמעותית, ממליצה בחום', age: 13 },
         {
-          name: 'שניאור', rec: `ברצוננו להמליץ על המורה לנגינה יצחק שיחי' בנינו הבכור
+          name: 'שניאור', rec: `ברצוננו להמליץ על המורה לנגינה יצחק בנינו הבכור
            לומד אצלו מדי שבוע ומתקדם מאוד יפה יחס אישי וסבלנות רבה ממליצים בחום`, age: 12
         },
       ],
@@ -105,7 +104,6 @@ export default {
       this.isPaused = false;
     },
     recFontSize(p) {
-      console.log(p.length);
       if (p.length > 200) {
         return 'fs12'
       } else if (p.length > 100) {
@@ -113,6 +111,10 @@ export default {
       } else if (p.length > 50) {
         return 'fs16'
       } else return 'fs18'
+    },
+    backHome() {
+      console.log('hi');
+      this.$router.push('/')
     }
   },
   beforeDestroy() {

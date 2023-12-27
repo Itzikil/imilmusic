@@ -2,17 +2,15 @@
   <header>
     <nav>
       <div class="logo-container">
-        <router-link to="/"> <span role="img" aria-label="logo">I & M</span>
-          <!-- <img src="../assets/logo.svg" alt="" class="logo">  -->
-        </router-link>
+        <router-link to="/"> <span role="img" aria-label="logo" :class="{ active: $route.path === '/' }">I & M</span> </router-link>
         <button @click="translate" class="trans-btn"><img src="../assets/imgs/language-icon.svg" alt=""></button>
       </div>
       <div :class="['link-container', navDieraction]">
         <div class="header-line"></div>
-        <router-link to="/lesson" data-trans="Lessons">Lessons</router-link>
-        <router-link to="/media" data-trans="Media">Media</router-link>
-        <router-link to="/contact" data-trans="Contact">Contact</router-link>
-        <router-link to="/about" data-trans="About">About</router-link>
+        <router-link to="/lesson" data-trans="Lessons" :class="{ active: $route.path === '/lesson' }">Lessons</router-link>
+        <router-link to="/media" data-trans="Media" :class="{ active: $route.path === '/media' }">Media</router-link>
+        <router-link to="/contact" data-trans="Contact" :class="{ active: $route.path === '/contact' }">Contact</router-link>
+        <router-link to="/about" data-trans="About" :class="{ active: $route.path === '/about' }">About</router-link>
         <div class="header-line"></div>
         <!-- <router-link to="/review">Reviews</router-link>
         <router-link to="/chat">Chat</router-link> -->

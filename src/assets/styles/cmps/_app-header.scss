@@ -18,6 +18,10 @@ header {
             // height: 80px;
         }
 
+        span{
+            padding-inline: 4px;
+        }
+
         .trans-btn {
             width: 50px;
             background-color: transparent;
@@ -66,7 +70,7 @@ header {
             justify-content: center;
             width: 100%;
 
-            .rtl{
+            .rtl {
                 flex-direction: row-reverse;
             }
         }
@@ -82,12 +86,22 @@ header {
         }
 
         a {
-            padding-inline: 10px;
+            padding-inline: 3px;
+            margin-inline: 7px;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+
+            &:hover {
+                color: $clr1;
+            }
+
         }
 
         .active {
-            color: $clr1;
+            border-bottom: 2px solid $clr1;
+            border-radius: 2px;
         }
+
     }
 
     @media (max-width: 700px) {
