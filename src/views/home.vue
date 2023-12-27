@@ -6,8 +6,8 @@
         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd7m5jbJeIyGfLR0BM2uTFs6LX_qPRwITaxiEN1eGa_tnOOGQ/formResponse">
         <img src="@/assets/imgs/sheetsWhite.svg" alt="" class="sheets-background">
         <h3 data-trans="Leave us your details">Leave us your details</h3>
-        <p><span data-trans="Or"> Or </span> <router-link to="/contact" class="bold" data-trans="Contact with us"> Contact
-            with us</router-link></p>
+        <p><span data-trans="Or"> Or </span> <router-link to="/contact" class="bold" data-trans="Contact with us">
+           Contact with us</router-link></p>
         <input type="text" placeholder="name" name="entry.730517852" data-trans="name">
         <input type="text" placeholder="email/phone" name="entry.592601501" data-trans="tel/mail">
         <input type="text" placeholder="subject" name="entry.211603254" data-trans="subject">
@@ -15,15 +15,15 @@
       </form>
       <div class="details">
         <h2 data-trans="Come learn with us">Come learn with us</h2>
-        <p>היי, אנחנו יצחק ומרים, מוזיקאים נשואים
-        </p>
+        <p>אנחנו יצחק ומרים, זוג מוזיקאים</p>
         <p>
-          מזמינים אתכם ללמוד איתנו שיעורי נגינה בכלי שאתם רוצים
-          החל מאנשים שמעולם לא נגעו בכלי נגינה, ועד אנשים שכבר למדו כמה שנים, ורוצים להעמיק עוד ולהתפתח. מילדים בגיל 6 ועד
-          מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד
+          מזמינים אתכם ללמוד איתנו שיעורי נגינה בכלי שאתם רוצים לנגן בו. החל מאנשים שמעולם לא נגעו בכלי נגינה ועד אנשים
+          שכבר למדו כמה שנים, ורוצים להעמיק עוד ולהתפתח. מילדים בגיל 6 ועד מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד.
+          שיעורים באווירה ביתית, סבלנית ונעימה
         </p>
         <div class="recommand-container" @mouseenter="pauseAnimation" @mouseleave="resumeAnimation"
           @touchstart="pauseAnimation" @touchend="resumeAnimation">
+          <div class="container-cover"></div>
           <div class="recommand" v-for="(recommand, idx) in recommandations"
             :class="{ 'active-recommand ': idx === activeRecommand, 'close-recommand': idx === nextRecommand }">
             <p :class="recFontSize(recommand.rec)">{{ recommand.rec }}</p>
@@ -65,8 +65,11 @@ export default {
          ב''ה הגעתי למרים המתוקה, שקיבלה אותי תמיד בחיוך מאיר, שלימדה אותי שלב אחרי שלב במקצועיות ובסבלנות,
          עודדה ותיקנה ודייקה. נהנתי מכל שיעור, שמחתי להגיע וללמוד, ממליצה בחום....בהצלחה לכולם`, age: 51
         },
-        { name: 'Heni ni', rec: 'I loved those lessons i wish i caoud lean more please ', age: 20 },
-        { name: 'He peni', rec: 'I loved those lessons i wish i caoud lean m ', age: 20 },
+        {
+          name: 'שרה', rec: `מרים מורה סבלנית, מקצועית, מתייחסת בצורה נעימה ואיכפתית מאוד!
+מלמדת בצורה ברורה ומובנת. נהנתי מאוד ללמוד אצל מרים, וממליצה בחום!`, age: 14
+        },
+        { name: 'עקיבא לבנדה', rec: 'הבן שלי למד גיטרה עם יצחק לוי. הוא מורה מקסים וקידם את הבן שלי בצורה משמעותית, ממליצה בחום', age: 13 },
         { name: 'Heni peni', rec: 'I loved those lessons  i caoud lean more please ', age: 20 },
       ],
       activeRecommand: 0,
@@ -83,7 +86,7 @@ export default {
       if (!this.isPaused) {
         this.animateBoxes();
       }
-    }, 3000);
+    }, 6000);
   },
   computed: {
   },

@@ -3,6 +3,7 @@
   flex-direction: column;
   color: $clr5;
   width: 100%;
+  padding-top: 8%;
 
   .second-container {
     display: flex;
@@ -86,17 +87,25 @@
 
     .instrument-pages {
       position: relative;
-      width: 350px;
+      width: 400px;
+      min-height: 350px;
 
       >* {
         position: absolute;
         max-height: fit-content;
-        min-height: 350px;
+        height: 100%;
         opacity: 0;
         transition: 0.5;
         border-radius: 7px;
         border-top-left-radius: 0px;
         padding: 10px;
+        display: grid;
+
+        h3 {
+          padding-top: 10px;
+        }
+
+        p {justify-self: center;}
       }
 
       .current-instrument {

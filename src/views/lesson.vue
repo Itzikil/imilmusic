@@ -1,8 +1,9 @@
 <template>
     <section class="container lesson-container text-center">
-        <h1 data-trans="Lessons">Lessons</h1>
         <div class="second-container">
-            <p>השיעורים מתקיימים אצלנו בבית באווירה נעימה עם עוגיות</p>
+            <p>השיעורים מתקיימים בסטודיו הביתי שלנו באווירה נעימה. יש אפשרות לשיעור פרטי, או למתכונת של קבוצה קטנה- עד 3
+                משתתפים.
+                כל שיעור מותאם לתלמיד- לרצונות שלו, לקצב שלו תוך שאיפה להגיע רחוק.</p>
             <div class="note-book">
                 <div class="bookmarks">
                     <div v-for="(instrument, idx) in instruments" :class="[instrument, displayInstrument(instrument)]"
