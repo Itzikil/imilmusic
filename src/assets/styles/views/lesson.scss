@@ -4,6 +4,30 @@
   color: $clr5;
   width: 100%;
   padding-top: 8%;
+  margin-bottom: 40px;
+
+  .first-p {
+    background-color: $clr1;
+    padding: 10px;
+    padding-top: 150px;
+    border-radius: 10px;
+    position: relative;
+    z-index: -1;
+    color: $clr2;
+
+    img {
+      position: absolute;
+      top: -100px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    p {
+      z-index: 10;
+    }
+  }
 
   .second-container {
     display: flex;
@@ -56,7 +80,7 @@
         justify-content: space-between;
         align-items: center;
         padding-inline: 10px;
-        transform: translateX(40%);
+        transform: translateX(41%);
         transition: 0.4s;
 
         p {
@@ -69,7 +93,6 @@
 
         &:hover {
           opacity: 0.8;
-          // transition: 0.4s;
           transform: translateX(0%);
 
         }
@@ -105,7 +128,9 @@
           padding-top: 10px;
         }
 
-        p {justify-self: center;}
+        p {
+          justify-self: center;
+        }
       }
 
       .current-instrument {
@@ -118,6 +143,16 @@
   }
 
   @media (max-width : 600px) {
+    .first-p {
+      padding-top: 10px;
+      height: 200px;
+      margin-bottom: 25px;
+
+      img {
+        top: -50px;
+      }
+    }
+
     .second-container {
       flex-direction: column;
     }

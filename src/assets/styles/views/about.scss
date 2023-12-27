@@ -54,7 +54,8 @@
         padding: 5px;
         display: flex;
         flex-direction: column;
-
+        font-size: 15px;
+        
         p {
             margin-bottom: 1px;
             text-align: center;
@@ -62,12 +63,15 @@
             max-width: none;
         }
     }
-
+    
     @media (min-width: 1400px) {
         .about-text {
             transform: translate(70%, 60%);
+            width: 85%;
+            font-size: 16px;
         }
     }
+
     .second-text {
         transform: translate(-70%, -10%);
     }
@@ -82,6 +86,10 @@
         gap: 250px;
         padding: 0;
         height: auto;
+
+        .sheets-background {
+            display: none;
+        }
 
         .first-about,
         .second-about {
@@ -99,7 +107,7 @@
 
         .about-text {
             width: 80%;
-            transform: translate(20%, 85%);
+            transform: translate(20%, 75%);
             font-size: small;
         }
 
@@ -110,7 +118,7 @@
         }
 
         .img-container {
-    
+
             img {
                 border-radius: 3px;
             }

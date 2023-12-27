@@ -1,9 +1,13 @@
 <template>
     <section class="container lesson-container text-center">
         <div class="second-container">
-            <p>השיעורים מתקיימים בסטודיו הביתי שלנו באווירה נעימה. יש אפשרות לשיעור פרטי, או למתכונת של קבוצה קטנה- עד 3
-                משתתפים.
-                כל שיעור מותאם לתלמיד- לרצונות שלו, לקצב שלו תוך שאיפה להגיע רחוק.</p>
+            <div class="first-p">
+                <p>השיעורים מתקיימים בסטודיו הביתי שלנו באווירה נעימה. יש אפשרות לשיעור פרטי, או למתכונת של
+                    קבוצה קטנה- עד 3
+                    משתתפים.
+                    כל שיעור מותאם לתלמיד- לרצונות שלו, לקצב שלו תוך שאיפה להגיע רחוק</p>
+                    <img src="../assets/imgs/sheetsWhite.svg" alt="">
+            </div>
             <div class="note-book">
                 <div class="bookmarks">
                     <div v-for="(instrument, idx) in instruments" :class="[instrument, displayInstrument(instrument)]"
@@ -42,7 +46,8 @@ export default {
                 harmonica: `  נלמד גיטרה קלאסית / אקוסטית / חשמלית , נתחיל במנגינות פשוטות ואקורדים פשוטים משם נעבור לאקורדים מורכבים יותר וסגנונות שונים כמו ג'אז בלוז גוספל ועוד עד שנוכל לנגן כל שיר שנרצ`,
                 bass: ` מלמד בצורה בסיסית, הכרת הכלי על בוריו, איפה כל צליל נמצא על הגיטרה ומתי לנגן ואיך. מתאים למתחילים`,
             },
-            imgs: [guitarImg, pianoImg, harmonicaImg, bassImg]
+            imgs: [guitarImg, pianoImg, harmonicaImg, bassImg],
+            direction: i18Service.getTransLang()
         }
     },
     created() {
