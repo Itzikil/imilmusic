@@ -46,7 +46,7 @@ var gTrans = {
     },
     'tel/email': {
         en: 'tel/email',
-        he: `ט'ל/מייל`,
+        he: `טל/מייל`,
     },
     'subject': {
         en: 'subject',

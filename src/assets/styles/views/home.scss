@@ -195,35 +195,38 @@
     }
 
     @media (max-width: 700px) {
-
-        .hero-container {
-            flex-direction: column-reverse;
-
-            .message-box {
-                width: 100%;
-            }
-
-            >* {
-                margin-bottom: 20px;
-            }
+        .submitted-container {
+            top: 50%;
+            transform: translateY(-50%);
         }
+            .hero-container {
+                flex-direction: column-reverse;
 
-        .instruments-container {
-            flex-wrap: wrap;
-
-            .instrument {
-                width: 47%;
-                margin-bottom: 15px;
-
-                h4 {
-                    font-size: large;
+                .message-box {
+                    width: 100%;
                 }
 
-                img {
-                    object-fit: cover;
-                    object-position: 30% center;
+                >* {
+                    margin-bottom: 20px;
+                }
+            }
+
+            .instruments-container {
+                flex-wrap: wrap;
+
+                .instrument {
+                    width: 47%;
+                    margin-bottom: 15px;
+
+                    h4 {
+                        font-size: large;
+                    }
+
+                    img {
+                        object-fit: cover;
+                        object-position: 30% center;
+                    }
                 }
             }
         }
     }
-}
