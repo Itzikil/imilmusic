@@ -87,7 +87,7 @@ export default {
       activeRecommand: 0,
       nextRecommand: 1,
       isPaused: false,
-      submitted: true,
+      submitted: false,
       formInputs: {
         name: '',
         email: '',
