@@ -24,13 +24,13 @@ var gTrans = {
         en: 'Leave us your details',
         he: 'השאירו פרטים ונחזור אליכם',
     },
-    'Or': {
-        en: 'Or',
-        he: 'או',
+    'Or Contact with us': {
+        en: 'Or Contact with us',
+        he: 'או צרו קשר',
     },
-    'Contact with us': {
-        en: 'Contact with us',
-        he: 'צרו קשר',
+    'Here': {
+        en: 'Here',
+        he: 'כאן',
     },
     'name': {
         en: 'name',

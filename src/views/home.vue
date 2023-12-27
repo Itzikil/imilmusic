@@ -6,8 +6,8 @@
         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd7m5jbJeIyGfLR0BM2uTFs6LX_qPRwITaxiEN1eGa_tnOOGQ/formResponse">
         <img src="@/assets/imgs/sheetsWhite.svg" alt="" class="sheets-background">
         <h3 data-trans="Leave us your details">Leave us your details</h3>
-        <p><span data-trans="Or"> Or </span> <router-link to="/contact" class="bold" data-trans="Contact with us">
-           Contact with us</router-link></p>
+        <p><span data-trans="Or Contact with us"> Or Contact with us </span> <router-link to="/contact" class="bold" data-trans="Here">
+            Here</router-link></p>
         <input type="text" placeholder="name" name="entry.730517852" data-trans="name">
         <input type="text" placeholder="email/phone" name="entry.592601501" data-trans="tel/mail">
         <input type="text" placeholder="subject" name="entry.211603254" data-trans="subject">
@@ -70,7 +70,10 @@ export default {
 מלמדת בצורה ברורה ומובנת. נהנתי מאוד ללמוד אצל מרים, וממליצה בחום!`, age: 14
         },
         { name: 'עקיבא לבנדה', rec: 'הבן שלי למד גיטרה עם יצחק לוי. הוא מורה מקסים וקידם את הבן שלי בצורה משמעותית, ממליצה בחום', age: 13 },
-        { name: 'Heni peni', rec: 'I loved those lessons  i caoud lean more please ', age: 20 },
+        {
+          name: 'שניאור', rec: `ברצוננו להמליץ על המורה לנגינה יצחק שיחי' בנינו הבכור
+           לומד אצלו מדי שבוע ומתקדם מאוד יפה יחס אישי וסבלנות רבה ממליצים בחום`, age: 12
+        },
       ],
       activeRecommand: 0,
       nextRecommand: 1,
