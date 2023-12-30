@@ -48,17 +48,17 @@
     }
 
     .piano {
-      background-color: #86A789;
+      background-color: #a6caa9;
       // background-color: #86A789;
     }
 
     .harmonica {
-      background-color: #739072;
+      background-color: #8caa8b;
       // background-color: #739072;
     }
 
     .bass {
-      background-color: #4F6F52;
+      background-color: #719b75;
       // background-color: #4F6F52;
     }
 
@@ -85,6 +85,8 @@
 
         p {
           margin: 0;
+          font-family: amatic;
+          font-size: 1.6rem;
         }
 
         img {
@@ -126,6 +128,8 @@
 
         h3 {
           padding-top: 10px;
+          font-family: amatic;
+          font-size: 2rem;
         }
 
         p {
@@ -199,8 +203,11 @@
 
       .instrument-pages {
         width: 100%;
+        margin-bottom: 80px;
 
         >* {
+          height: fit-content;
+          min-height: 350px;
           border-top-right-radius: 0;
         }
       }

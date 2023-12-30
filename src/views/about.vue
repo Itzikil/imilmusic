@@ -6,7 +6,7 @@
                 <img src="@/assets/imgs/miriam.jpeg" alt="">
             </div>
             <div class="about-text">
-                <p class="bold fs18">מרים</p>
+                <h3 class="bold fs18">מרים</h3>
                 <p>פסנתרנית מבצעת / יוצרת</p>
                 <p>מנגנת ג'אז, פופ, מוזיקה קלאסית. מלווה זמרים, מנגנת בהרכבים אינסטרומנטליים מקוריים</p>
                 <p>
@@ -22,7 +22,7 @@
                 <img src="@/assets/imgs/itzik.jpeg" alt="">
             </div>
             <div class="about-text second-text">
-                <p class="bold fs18">יצחק</p>
+                <h3 class="bold fs18">יצחק</h3>
                 <!-- <p data-trans="itzik-text"></p> -->
                 <p>גיטריסט, פסנתרן, זמר - יוצר
                 </p>

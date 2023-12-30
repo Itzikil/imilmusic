@@ -113,8 +113,9 @@
     .media-container {
         display: flex;
         padding-inline: 25px;
-
+        padding-top: 30px;
         .videos-container {
+            flex-direction: column;
             width: 100%;
             display: flex;
             // justify-content: center;

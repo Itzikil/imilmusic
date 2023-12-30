@@ -3,10 +3,11 @@
     <div class="hero-container">
       <iframe name="hiddenConfirm" id="hiddenConfirm" style="display: none;"
         onload="if(this.submitted){widow.location='imilmusic.com/lesson'}"></iframe>
-      <form class="message-box" id="myForm" method="POST" target="hiddenConfirm" @submit="this.submitted = true"
+      <form :class="['message-box', currLang === 'he' ? 'rtl' : 'ltr']" id="myForm" method="POST" target="hiddenConfirm"
+        @submit="this.submitted = true"
         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd7m5jbJeIyGfLR0BM2uTFs6LX_qPRwITaxiEN1eGa_tnOOGQ/formResponse">
         <img src="@/assets/imgs/sheetsWhite.svg" alt="" class="sheets-background">
-        <h3 data-trans="Leave us your details">Leave us your details</h3>
+        <h2 data-trans="Leave us your details">Leave us your details</h2>
         <p><span data-trans="Or Contact with us"> Or Contact with us </span> <router-link to="/contact" class="bold"
             data-trans="Here"> Here </router-link>
         </p>
@@ -26,9 +27,11 @@
         <h2 data-trans="Come learn with us">Come learn with us</h2>
         <p>אנחנו יצחק ומרים, זוג מוזיקאים</p>
         <p>
-          מזמינים אתכם ללמוד איתנו שיעורי נגינה בכלי שאתם רוצים לנגן בו. החל מאנשים שמעולם לא נגעו בכלי נגינה ועד אנשים
-          שכבר למדו כמה שנים, ורוצים להעמיק עוד ולהתפתח. מילדים בגיל 6 ועד מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד.
-          שיעורים באווירה ביתית, סבלנית ונעימה
+          מזמינים אתכם ללמוד איתנו שיעורי נגינה במגוון כלים, בין אם מעולם לא נגעתם בכלי נגינה ובין אם אתם
+          מנגנים כבר שנים ורוצים להעמיק עוד ולהתפתח
+        </p>
+        <p>
+          ילדים בגיל 6 ועד מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד, מוזמנים לשיעורים באווירה ביתית, סבלנית ונעימה
         </p>
         <div class="recommand-container" @mouseenter="pauseAnimation" @mouseleave="resumeAnimation"
           @touchstart="pauseAnimation" @touchend="resumeAnimation">
@@ -72,17 +75,18 @@ export default {
         {
           name: 'חני', rec: `החלטתי בגיל 50 להגשים חלום ילדות, ללמוד לנגן בפסנתר. זו היתה בשבילי התחלה חדשה, וחיפשתי מישהי שתלמד אותי.
          ב''ה הגעתי למרים המתוקה, שקיבלה אותי תמיד בחיוך מאיר, שלימדה אותי שלב אחרי שלב במקצועיות ובסבלנות,
-         עודדה ותיקנה ודייקה. נהנתי מכל שיעור, שמחתי להגיע וללמוד, ממליצה בחום....בהצלחה לכולם`, age: 51
-        },
-        {
-          name: 'שרה', rec: `מרים מורה סבלנית, מקצועית, מתייחסת בצורה נעימה ואיכפתית מאוד!
-מלמדת בצורה ברורה ומובנת. נהנתי מאוד ללמוד אצל מרים, וממליצה בחום!`, age: 14
+         עודדה ותיקנה ודייקה. נהנתי מכל שיעור, שמחתי להגיע וללמוד, ממליצה בחום... בהצלחה לכולם`, age: 51
         },
         { name: 'עקיבא לבנדה', rec: 'הבן שלי למד גיטרה עם יצחק לוי. הוא מורה מקסים וקידם את הבן שלי בצורה משמעותית, ממליצה בחום', age: 13 },
         {
-          name: 'שניאור', rec: `ברצוננו להמליץ על המורה לנגינה יצחק, בנינו הבכור
-           לומד אצלו מדי שבוע ומתקדם מאוד יפה, יחס אישי וסבלנות רבה ממליצים בחום`, age: 12
+          name: 'שרה', rec: `מרים מורה סבלנית, מקצועית, מתייחסת בצורה נעימה ואיכפתית מאוד!
+          מלמדת בצורה ברורה ומובנת. נהנתי מאוד ללמוד אצל מרים, וממליצה בחום!`, age: 14
         },
+        {
+          name: 'שניאור', rec: `ברצוננו להמליץ על המורה לנגינה יצחק, בנינו הבכור
+          לומד אצלו מדי שבוע ומתקדם מאוד יפה, יחס אישי וסבלנות רבה ממליצים בחום`, age: 12
+        },
+        { name: 'חן', rec: 'הבן שלי למד גיטרה עם יצחק לוי. הוא מורה מקסים וקידם את הבן שלי בצורה משמעותית, ממליצה בחום', age: 13 },
       ],
       activeRecommand: 0,
       nextRecommand: 1,
@@ -92,10 +96,12 @@ export default {
         name: '',
         email: '',
         subject: ''
-      }
+      },
+      currLang: i18Service.getTransLang()
     }
   },
   created() {
+    console.log(this.currLang);
   },
   mounted() {
     i18Service.setLang()
@@ -135,7 +141,7 @@ export default {
         email: '',
         subject: ''
       }
-    }
+    },
   },
   beforeDestroy() {
     clearInterval(this.animationInterval);

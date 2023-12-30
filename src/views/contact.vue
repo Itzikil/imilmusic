@@ -1,8 +1,8 @@
 <template>
     <section class="container contact-container text-center">
-        <h1 data-trans="Contact us">Contact us</h1>
+        <h2 data-trans="Contact us">Contact us</h2>
         <div class="flex space-between">
-            <div class="contact-container">
+            <div class="contacts-container">
                 <h4 data-trans="Miriam">Miriam</h4>
                 <h5 class="text-center">054-3060864</h5>
                 <h5 class="text-center">mirik.b@gmail.com</h5>
@@ -11,7 +11,7 @@
                 <a target="_blank" href="https://www.youtube.com/@miriambier2563"><img class="logo"
                         src="@/assets/logos/youtube.svg" alt="youtube"></a>
             </div>
-            <div class="contact-container">
+            <div class="contacts-container">
                 <h4 data-trans="Itzhak">Itzhak</h4>
                 <h5 class="text-center">054-2609225</h5>
                 <h5 class="text-center">itzikil@icloud.com</h5>
