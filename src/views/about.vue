@@ -1,5 +1,5 @@
 <template>
-    <section class="container about-container text-center">
+    <section :class="['container', 'about-container', 'text-center', isRtl]">
         <img src="@/assets/imgs/waves.svg" alt="" class="sheets-background">
         <div class="first-about">
             <div class="img-container">
@@ -14,7 +14,8 @@
                     וכן לימודי תעודה בביה"ס הגבוה למוזיקה "מזמור". כיום סטודנטית בתכנית האקדמית ללימודי ג'אז בשיתוף
                     הניו-סקול ניו יורק.
                 </p>
-                <p>מאז ומתמיד הרגשתי שהפסנתר הוא מפלט. שאפשר לנגן בו ברגעים של אושר או ברגעים כואבים יותר, משהו ביצירת המוזיקה הנובעת דרך הגוף, מבפנים, מביאה לידי ביטוי דבר מופלא</p>
+                <p>מאז ומתמיד הרגשתי שהפסנתר הוא מפלט. שאפשר לנגן בו ברגעים של אושר או ברגעים כואבים יותר, משהו ביצירת
+                    המוזיקה הנובעת דרך הגוף, מבפנים, מביאה לידי ביטוי דבר מופלא</p>
             </div>
         </div>
         <div class="second-about">
@@ -31,22 +32,32 @@
                     למוזיקה תמיד היתה משמעות מיוחדת עבורי. אני מאמין שצריך להתייחס אליה בעדינות, בהקשבה גדולה ולתת לה מקום
                     של
                     כבוד</p>
-                <p>אני שמח ללמד את כל מי שליבו חפץ, את כל מי שסקרן ומחפש ואוהב להינות 😊</p>
+                <p>אני שמח ללמד את כל מי שליבו חפץ, את כל מי שסקרן ומחפש ואוהב להינות </p>
             </div>
         </div>
     </section>
 </template>
   
 <script>
+import { i18Service } from '../services/i18-service.js'
+
 export default {
-    name: 'home',
+    name: 'about',
     data() {
         return {
+            currLang: i18Service.getTransLang()
         }
     },
     computed: {
+        isRtl(){
+            return this.$store.getters.isRtl === 'he' ? 'rtl-about' : ''
+        }
     },
     created() {
+    },
+    mounted() {
+        i18Service.setLang()
+        i18Service.doTrans()
     },
     methods: {
     }

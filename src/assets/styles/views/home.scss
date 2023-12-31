@@ -8,7 +8,7 @@
     padding-top: 20px;
     padding-bottom: 60px;
 
-    h2{
+    h2 {
         font-family: amatic;
         font-size: 2rem;
     }
@@ -28,7 +28,6 @@
             padding-inline: 20px;
             border-radius: 8px;
             padding-top: 110px;
-            // margin-top: 30px;
             justify-content: center;
             width: 363px;
             min-height: 460px;
@@ -55,12 +54,12 @@
 
             button {
                 background-color: $clr2;
-                // height: 30px;
                 padding-inline: 15px;
                 padding-block: 8px;
                 width: 40%;
                 border-radius: 30px;
-                font-size: large;
+                font-size: 1.5rem;
+                font-family: amatic-bold;
 
                 &:hover {
                     transform: scale(1.1);
@@ -103,7 +102,7 @@
                     height: 180px;
                     background-color: $clr1;
                     transform: translateY(-150%);
-                    transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+                    transition: opacity 3s ease-in-out, transform 3s ease-in-out;
                     opacity: 0;
                     font-size: 15px;
                     margin: auto;
@@ -200,6 +199,8 @@
     }
 
     @media (max-width: 700px) {
+        gap: 20px;
+
         .submitted-container {
             top: 50%;
             transform: translateY(-50%);
@@ -214,6 +215,12 @@
 
             >* {
                 margin-bottom: 20px;
+            }
+
+            .details {
+                .p-container {
+                    margin-bottom: 20px;
+                }
             }
         }
 

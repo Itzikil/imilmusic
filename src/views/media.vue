@@ -2,7 +2,7 @@
     <section class="container text-center media-container">
         <div class="videos-container" ref="videoContainer">
             <div v-for="(video, idx) in videos" :key="idx"
-                :style="{ transform: `translateX(${(idx + offset) % videos.length * 250}px)` }"
+                :style="{ transform: `translateX(${(idx + offset) % videos.length * plusOrMinus}px)` }"
                 :class="['video-container', getPosition(idx), playVideo(idx)]">
                 <iframe :src="`https://www.youtube.com/embed/${video}`" @mousedown.stop title="YouTube video player"
                     frameborder="0"
@@ -12,8 +12,10 @@
                 <div class="video-cover" @click="showVideo(idx)"></div>
             </div>
         </div>
-        <button @click="slide(-1)" class="arrow"><img src="@/assets/imgs/arrow.png" alt=""></button>
-        <button @click="slide(1)" class="arrow right-arrow"><img src="@/assets/imgs/arrow.png" alt=""></button>
+        <div :class="['btn-container', isRtl]">
+            <button @click="slide(-1)" class="arrow"><img src="@/assets/imgs/arrow.png" alt=""></button>
+            <button @click="slide(1)" class="arrow right-arrow"><img src="@/assets/imgs/arrow.png" alt=""></button>
+        </div>
     </section>
 </template>
   
@@ -24,10 +26,10 @@ export default {
         return {
             videos: [
                 'tk3eWKoa3U4?si=azIl2tRfEJhD7PQJ',
-                '70RTp-udCys?si=PQfrkKvx5rZaAUbn',
                 'HfEkwL0_n1Y?si=qa34wItEzRCiw1ne',
-                'uJtdgtm0Mhc?si=XgDDNcT7HGPbkcAt',
                 'NMJcTbhDMqc?si=nf7FvYRbZSbKAv8A',
+                'uJtdgtm0Mhc?si=XgDDNcT7HGPbkcAt',
+                '70RTp-udCys?si=PQfrkKvx5rZaAUbn',
             ],
             offset: 0,
             playingVideo: null
@@ -40,6 +42,12 @@ export default {
     computed: {
         middleVideo() {
             return Math.floor(this.videos.length / 2)
+        },
+        plusOrMinus() {
+            return this.$store.getters.isRtl === 'he' ? -250 : 250
+        },
+        isRtl() {
+            return this.$store.getters.isRtl === 'he' ? 'rtl-media' : ''
         },
     },
     methods: {

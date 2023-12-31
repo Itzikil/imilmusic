@@ -1,18 +1,18 @@
 <template>
-    <section class="container lesson-container text-center">
+    <section :class="['container', 'lesson-container', 'text-center', isRtl]">
         <div class="second-container">
             <div class="first-p">
                 <p>השיעורים מתקיימים בסטודיו הביתי שלנו באווירה נעימה. יש אפשרות לשיעור פרטי, או למתכונת של
                     קבוצה קטנה- עד 3
                     משתתפים.
                     כל שיעור מותאם לתלמיד- לרצונות שלו, לקצב שלו תוך שאיפה להגיע רחוק</p>
-                    <img src="../assets/imgs/sheetsWhite.svg" alt="">
+                <img src="../assets/imgs/sheetsWhite.svg" alt="">
             </div>
             <div class="note-book">
                 <div class="bookmarks">
                     <div v-for="(instrument, idx) in instruments" :class="[instrument, displayInstrument(instrument)]"
                         :key="instrument + 1" @click="chooseInstrument(instrument)">
-                        <p class="bold instrument-name" :data-trans=instrument>{{ instrument }}</p>
+                        <p class="instrument-name" :data-trans=instrument>{{ instrument }}</p>
                         <img :src=imgs[idx] alt="">
                     </div>
                 </div>
@@ -29,11 +29,12 @@
 </template>
   
 <script>
-import { i18Service } from '../services/i18n-service.js'
+import { i18Service } from '../services/i18-service.js'
 import guitarImg from '../assets/imgs/guitar.svg'
 import pianoImg from '../assets/imgs/piano.svg'
 import harmonicaImg from '../assets/imgs/harmonica.svg'
 import bassImg from '../assets/imgs/bass.svg'
+
 export default {
     name: 'home',
     data() {
@@ -42,7 +43,7 @@ export default {
             instruments: ['guitar', 'piano', 'harmonica', 'bass'],
             instrumentText: {
                 guitar: `  נלמד גיטרה קלאסית / אקוסטית / חשמלית, נתחיל במנגינות פשוטות ואקורדים פשוטים, משם נעבור לתאוריה ואקורדים מורכבים, עם סגנונות שונים כמו ג'אז, בלוז, גוספל ועוד, עד שנוכל לנגן כל שיר שנרצה. נעבוד עם תכנית מסודרת כדי להבטיח שלא נדלג על שלבים חיוניים והתקדמות טובה ויציבה`,
-                piano: `נתחיל מהיכרות עם הכלי, נגלה אותו ביחד. נלמד לנגן מתווים בשתי הידיים, נתחיל בשירים ומנגינות פשוטות ונגיע ליצירות קלאסיות מורכבות.
+                piano: `נתחיל מהיכרות עם הכלי. נלמד לנגן מתווים בשתי הידיים, נתחיל בשירים ומנגינות פשוטות ונגיע ליצירות קלאסיות מורכבות.
 לאלו שיותר מעוניינים ללמוד לנגן שירים עכשוויים, נלמד לנגן משמיעה, אקורדים וליווי. 
 כל השיעורים מלווים בהבנת הנושאים מעבר ל"איך" לנגן אותם. נלמד תיאוריה, הרמוניה ונרחיב בהתאם לרצון התלמיד.
 יצחק מלמד בדגש על מוזיקת ג'אז, גוספל, פאנק, מרים מלמדת בדגש קלאסי.`,
@@ -62,6 +63,9 @@ export default {
         i18Service.doTrans()
     },
     computed: {
+        isRtl() {
+            return this.$store.getters.isRtl === 'he' ? 'rtl-lesson' : ''
+        }
     },
     methods: {
         displayInstrument(instrument) {

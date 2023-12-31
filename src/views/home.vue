@@ -3,7 +3,7 @@
     <div class="hero-container">
       <iframe name="hiddenConfirm" id="hiddenConfirm" style="display: none;"
         onload="if(this.submitted){widow.location='imilmusic.com/lesson'}"></iframe>
-      <form :class="['message-box', currLang === 'he' ? 'rtl' : 'ltr']" id="myForm" method="POST" target="hiddenConfirm"
+      <form :class="['message-box']" id="myForm" method="POST" target="hiddenConfirm"
         @submit="this.submitted = true"
         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd7m5jbJeIyGfLR0BM2uTFs6LX_qPRwITaxiEN1eGa_tnOOGQ/formResponse">
         <img src="@/assets/imgs/sheetsWhite.svg" alt="" class="sheets-background">
@@ -25,14 +25,16 @@
       </div>
       <div class="details">
         <h2 data-trans="Come learn with us">Come learn with us</h2>
-        <p>אנחנו יצחק ומרים, זוג מוזיקאים</p>
-        <p>
-          מזמינים אתכם ללמוד איתנו שיעורי נגינה במגוון כלים, בין אם מעולם לא נגעתם בכלי נגינה ובין אם אתם
-          מנגנים כבר שנים ורוצים להעמיק עוד ולהתפתח
-        </p>
-        <p>
-          ילדים בגיל 6 ועד מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד, מוזמנים לשיעורים באווירה ביתית, סבלנית ונעימה
-        </p>
+        <div class="p-container">
+          <p>אנחנו יצחק ומרים, זוג מוזיקאים</p>
+          <p>
+            מזמינים אתכם ללמוד איתנו שיעורי נגינה במגוון כלים, בין אם מעולם לא נגעתם בכלי נגינה ובין אם אתם
+            מנגנים כבר שנים ורוצים להעמיק עוד ולהתפתח
+          </p>
+          <p>
+            ילדים בגיל 6 ועד מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד, מוזמנים לשיעורים באווירה ביתית, סבלנית ונעימה
+          </p>
+        </div>
         <div class="recommand-container" @mouseenter="pauseAnimation" @mouseleave="resumeAnimation"
           @touchstart="pauseAnimation" @touchend="resumeAnimation">
           <div class="container-cover"></div>
@@ -56,7 +58,7 @@
 </template>
 
 <script>
-import { i18Service } from '../services/i18n-service.js'
+import { i18Service } from '../services/i18-service.js'
 export default {
   name: 'home',
   data() {
@@ -97,11 +99,9 @@ export default {
         email: '',
         subject: ''
       },
-      currLang: i18Service.getTransLang()
     }
   },
   created() {
-    console.log(this.currLang);
   },
   mounted() {
     i18Service.setLang()

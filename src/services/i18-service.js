@@ -130,8 +130,8 @@ function getTrans(transKey) {
 
 function setLang(lang = gCurrLang) {
     gCurrLang = lang
-    // if (lang === 'he') document.body.classList.add('rtl')
-    // else document.body.classList.remove('rtl')
+    if (lang === 'he') document.body.classList.add('rtl')
+    else document.body.classList.remove('rtl')
     storageService.store('lang', gCurrLang)
 }
 

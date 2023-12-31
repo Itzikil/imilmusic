@@ -29,12 +29,13 @@
 </template>
   
 <script>
-import { i18Service } from '../services/i18n-service.js';
+import { i18Service } from '../services/i18-service.js';
 
 export default {
     name: 'home',
     data() {
         return {
+            currLang: i18Service.getTransLang()
         }
     },
     computed: {
@@ -47,7 +48,6 @@ export default {
     },
     methods: {
     }
-
 }
 </script>
   

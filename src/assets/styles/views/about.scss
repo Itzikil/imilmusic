@@ -55,22 +55,28 @@
         display: flex;
         flex-direction: column;
         font-size: 15px;
-        
-        h3{
+
+        h3 {
             font-family: amatic;
             font-size: 1.5rem;
         }
+
         p {
             margin-bottom: 1px;
             text-align: center;
             width: 100%;
             max-width: none;
         }
+
     }
-    
+
+    &.rtl-about {
+        flex-direction: row-reverse;
+    }
+
     @media (min-width: 1400px) {
         .about-text {
-            transform: translate(70%, 60%);
+            transform: translate(70%, 40%);
             width: 85%;
             font-size: 16px;
         }
@@ -118,13 +124,23 @@
         .second-text {
             transform: translate(5%, 103%);
             margin-bottom: 500px;
-            // padding-bottom: 100px;
         }
 
         .img-container {
 
             img {
                 border-radius: 3px;
+            }
+        }
+
+        &.rtl-about {
+            flex-direction: column;
+            .about-text {
+                transform: translate(-20%, 75%);
+            }
+
+            .second-text {
+                transform: translate(-5%, 103%);
             }
         }
     }

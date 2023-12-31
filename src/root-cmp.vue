@@ -11,7 +11,7 @@ import { store } from './store/store'
 import appHeader from './cmps/app-header.vue'
 import userMsg from './cmps/user-msg.vue'
 import { userService } from './services/user.service'
-import { i18Service } from './services/i18n-service'
+import { i18Service } from './services/i18-service'
 
 export default {
 
