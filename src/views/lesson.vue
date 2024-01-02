@@ -2,10 +2,9 @@
     <section :class="['container', 'lesson-container', 'text-center', isRtl]">
         <div class="second-container">
             <div class="first-p">
-                <p>השיעורים מתקיימים בסטודיו הביתי שלנו באווירה נעימה. יש אפשרות לשיעור פרטי, או למתכונת של
-                    קבוצה קטנה- עד 3
-                    משתתפים.
-                    כל שיעור מותאם לתלמיד- לרצונות שלו, לקצב שלו תוך שאיפה להגיע רחוק</p>
+                <p data-trans="lesson-header">השיעורים מתקיימים בסטודיו הביתי שלנו באווירה נעימה. יש אפשרות לשיעור פרטי, או
+                    למתכונת של קבוצה קטנה- עד 3
+                    משתתפים. כל שיעור מותאם לתלמיד- לרצונות שלו, לקצב שלו תוך שאיפה להגיע רחוק</p>
                 <img src="../assets/imgs/sheetsWhite.svg" alt="">
             </div>
             <div class="note-book">
@@ -20,7 +19,8 @@
                     <div v-for="instrument in instruments" :class="[instrument, displayInstrument(instrument)]"
                         :key=instrument>
                         <h3 class="instrument-name" :data-trans=instrument>{{ instrument }}</h3>
-                        <p>{{ this.instrumentText[instrument] }}</p>
+                        <p :data-trans="`${instrument}-details`" :class=recFontSize(this.instrumentText[instrument])>{{
+                            this.instrumentText[instrument] }} </p>
                     </div>
                 </div>
             </div>
@@ -73,6 +73,11 @@ export default {
         },
         chooseInstrument(instrument) {
             this.currentInstrument = instrument
+        },
+        recFontSize(p) {
+            if (p.length > 300) {
+                return 'fs-p'
+            }
         },
     }
 

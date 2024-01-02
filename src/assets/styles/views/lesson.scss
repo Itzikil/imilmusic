@@ -3,7 +3,7 @@
   flex-direction: column;
   color: $clr5;
   width: 100%;
-  padding-top: 8%;
+  padding-top: 4%;
   margin-bottom: 40px;
 
   .first-p {
@@ -38,7 +38,6 @@
 
   .note-book {
     display: flex;
-    // width: 100%;
 
     .instrument-name {
       text-transform: capitalize;
@@ -46,22 +45,18 @@
 
     .guitar {
       background-color: #D2E3C8;
-      // background-color: #D2E3C8;
     }
 
     .piano {
       background-color: #a6caa9;
-      // background-color: #86A789;
     }
 
     .harmonica {
       background-color: #8caa8b;
-      // background-color: #739072;
     }
 
     .bass {
       background-color: #719b75;
-      // background-color: #4F6F52;
     }
 
     .bookmarks {
@@ -151,12 +146,23 @@
 
   }
 
+  .fs-p {
+    font-size: rem(16px);
+    margin-bottom: 0;
+  }
+  
   &.rtl-lesson {
     .bookmarks {
       >* {
         transform: translateX(-41%);
       }
     }
+
+    .fs-p {
+      font-size: rem(18px);
+      margin-bottom: 10px;
+    }
+
   }
 
   @media (max-width : 700px) {
@@ -166,7 +172,6 @@
 
     .first-p {
       padding-top: 100px;
-      height: 340px;
       margin-bottom: 25px;
 
       img {
@@ -225,7 +230,7 @@
 
         >* {
           border-start-end-radius: 0;
-          // border-start-start-radius: 7px;
+          padding-inline: 10px;
         }
       }
     }

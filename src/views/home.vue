@@ -3,12 +3,11 @@
     <div class="hero-container">
       <iframe name="hiddenConfirm" id="hiddenConfirm" style="display: none;"
         onload="if(this.submitted){widow.location='imilmusic.com/lesson'}"></iframe>
-      <form :class="['message-box']" id="myForm" method="POST" target="hiddenConfirm"
-        @submit="this.submitted = true"
+      <form :class="['message-box']" id="myForm" method="POST" target="hiddenConfirm" @submit="this.submitted = true"
         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd7m5jbJeIyGfLR0BM2uTFs6LX_qPRwITaxiEN1eGa_tnOOGQ/formResponse">
         <img src="@/assets/imgs/sheetsWhite.svg" alt="" class="sheets-background">
         <h2 data-trans="Leave us your details">Leave us your details</h2>
-        <p><span data-trans="Or Contact with us"> Or Contact with us </span> <router-link to="/contact" class="bold"
+        <p><span data-trans="Or Contact with us"> Or Contact us </span> <router-link to="/contact" class="bold"
             data-trans="Here"> Here </router-link>
         </p>
         <input type="text" placeholder="name" name="entry.730517852" data-trans="name" v-model="formInputs.name">
@@ -18,20 +17,20 @@
         <button type="submit" data-trans="send">send</button>
       </form>
       <div v-if="this.submitted" class="submitted-container">
-        <!-- <p data-trans="Thank you">Thank you for your message we will back to you asap</p> -->
-        <p data-trans="Thank you">תודה שפניתם אלינו נחזור אליכם בהקדם</p>
-        <button @click="closeConfirm" data-trans="Close">סגור</button>
-        <!-- <button @click="closeConfirm" data-trans="Close">Close</button> -->
+        <p data-trans="Thank you">Thank you for your message we will back to you asap</p>
+        <!-- <p data-trans="Thank you">תודה שפניתם אלינו נחזור אליכם בהקדם</p> -->
+        <!-- <button @click="closeConfirm" data-trans="Close">סגור</button> -->
+        <button @click="closeConfirm" data-trans="Close">Close</button>
       </div>
       <div class="details">
         <h2 data-trans="Come learn with us">Come learn with us</h2>
         <div class="p-container">
-          <p>אנחנו יצחק ומרים, זוג מוזיקאים</p>
-          <p>
+          <p data-trans="music-couple">אנחנו יצחק ומרים, זוג מוזיקאים</p>
+          <p data-trans="home p1">
             מזמינים אתכם ללמוד איתנו שיעורי נגינה במגוון כלים, בין אם מעולם לא נגעתם בכלי נגינה ובין אם אתם
             מנגנים כבר שנים ורוצים להעמיק עוד ולהתפתח
           </p>
-          <p>
+          <p data-trans="home p2">
             ילדים בגיל 6 ועד מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד, מוזמנים לשיעורים באווירה ביתית, סבלנית ונעימה
           </p>
         </div>
@@ -41,7 +40,7 @@
           <div class="recommand" v-for="(recommand, idx) in recommandations"
             :class="{ 'active-recommand ': idx === activeRecommand, 'close-recommand': idx === nextRecommand }">
             <p :class="recFontSize(recommand.rec)">{{ recommand.rec }}</p>
-            <p><span class="bold">{{ recommand.name }} </span> {{ recommand.age }} - </p>
+            <p><span class="bold"> - {{ recommand.name }} </span> {{ recommand.age }} </p>
           </div>
         </div>
       </div>
@@ -70,16 +69,16 @@ export default {
         { name: 'bass', img: 'https://images.unsplash.com/photo-1602900332980-6e6f13946a3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' }
       ],
       recommandations: [
+        { name: 'עקיבא לבנדה', rec: 'הבן שלי למד גיטרה עם יצחק לוי. הוא מורה מקסים וקידם את הבן שלי בצורה משמעותית, ממליצה בחום', age: 13 },
+        {
+          name: 'חני', rec: `החלטתי בגיל 50 להגשים חלום ילדות, ללמוד לנגן בפסנתר. זו היתה בשבילי התחלה חדשה, וחיפשתי מישהי שתלמד אותי.
+          ב''ה הגעתי למרים המתוקה, שקיבלה אותי תמיד בחיוך מאיר, שלימדה אותי שלב אחרי שלב במקצועיות ובסבלנות,
+          עודדה ותיקנה ודייקה. נהנתי מכל שיעור, שמחתי להגיע וללמוד, ממליצה בחום... בהצלחה לכולם`, age: 51
+        },
         {
           name: 'נעם אביסדריס', rec: `זכיתי ללמוד אצל יצחק גיטרה, יצחק מורה מדהים מלמד מצוין משקיע ומסביר טוב
 יש לו המון סבלנות ואנרגיות טובות`, age: 13
         },
-        {
-          name: 'חני', rec: `החלטתי בגיל 50 להגשים חלום ילדות, ללמוד לנגן בפסנתר. זו היתה בשבילי התחלה חדשה, וחיפשתי מישהי שתלמד אותי.
-         ב''ה הגעתי למרים המתוקה, שקיבלה אותי תמיד בחיוך מאיר, שלימדה אותי שלב אחרי שלב במקצועיות ובסבלנות,
-         עודדה ותיקנה ודייקה. נהנתי מכל שיעור, שמחתי להגיע וללמוד, ממליצה בחום... בהצלחה לכולם`, age: 51
-        },
-        { name: 'עקיבא לבנדה', rec: 'הבן שלי למד גיטרה עם יצחק לוי. הוא מורה מקסים וקידם את הבן שלי בצורה משמעותית, ממליצה בחום', age: 13 },
         {
           name: 'שרה', rec: `מרים מורה סבלנית, מקצועית, מתייחסת בצורה נעימה ואיכפתית מאוד!
           מלמדת בצורה ברורה ומובנת. נהנתי מאוד ללמוד אצל מרים, וממליצה בחום!`, age: 14
@@ -88,7 +87,7 @@ export default {
           name: 'שניאור', rec: `ברצוננו להמליץ על המורה לנגינה יצחק, בנינו הבכור
           לומד אצלו מדי שבוע ומתקדם מאוד יפה, יחס אישי וסבלנות רבה ממליצים בחום`, age: 12
         },
-        { name: 'חן', rec: 'הבן שלי למד גיטרה עם יצחק לוי. הוא מורה מקסים וקידם את הבן שלי בצורה משמעותית, ממליצה בחום', age: 13 },
+        { name: 'חן', rec: `אני לומדת פסנתר אצל מרים כבר כמה חודשים, מורה נהדרת וסבלנית מלמדת ברמה גבוהה, ואני רואה התקדמות כבר מההתחלה עם הרבה יחס אישי`, age: 13 },
       ],
       activeRecommand: 0,
       nextRecommand: 1,

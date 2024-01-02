@@ -4,7 +4,9 @@
       <div class="logo-container">
         <router-link to="/"> <span role="img" aria-label="logo" :class="{ active: $route.path === '/' }">I & M</span>
         </router-link>
-        <button @click="translate" class="trans-btn"><img src="../assets/imgs/language-icon.svg" alt=""></button>
+        <!-- <button @click="translate" class="trans-btn"><img src="../assets/imgs/language-icon.svg" alt=""></button> -->
+        <button @click="translate" class="trans-btn"><img src="../assets/imgs/google-translate-icon.svg" alt=""></button>
+        <!-- <button @click="translate" class="trans-btn"><img src="../assets/imgs/earth-icon.svg" alt=""></button> -->
       </div>
       <div :class="['link-container', navDieraction]">
         <div class="header-line"></div>
