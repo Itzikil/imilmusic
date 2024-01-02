@@ -43,7 +43,6 @@ export default {
     name: 'about',
     data() {
         return {
-            currLang: i18Service.getTransLang()
         }
     },
     computed: {

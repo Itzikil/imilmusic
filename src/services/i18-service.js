@@ -61,8 +61,12 @@ var gTrans = {
         he: 'סגור',
     },
     'Thank you': {
-        en: 'Thank you for your message we will back to you asap',
-        he: 'תודה שפניתם אלינו נחזור אליכם בהקדם',
+        en: 'Thank you',
+        he: 'תודה',
+    },
+    'for your': {
+        en: 'for your message we will back to you asap',
+        he: 'שפנית אלינו נחזור אליך בהקדם',
     },
     'Come learn with us': {
         en: 'Come learn with us',
@@ -151,6 +155,7 @@ let gCurrLang = storageService.load('lang') || Intl.DateTimeFormat().resolvedOpt
 
 function doTrans() {
     const els = document.querySelectorAll('[data-trans]')
+    console.log(els);
     els.forEach(el => {
         const transKey = el.dataset.trans
         const trans = getTrans(transKey)

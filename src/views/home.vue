@@ -17,9 +17,9 @@
         <button type="submit" data-trans="send">send</button>
       </form>
       <div v-if="this.submitted" class="submitted-container">
-        <p data-trans="Thank you">Thank you for your message we will back to you asap</p>
-        <!-- <p data-trans="Thank you">תודה שפניתם אלינו נחזור אליכם בהקדם</p> -->
-        <!-- <button @click="closeConfirm" data-trans="Close">סגור</button> -->
+        <p :class="[isRtl]"><span data-trans="Thank you">Thank you </span> {{ this.formInputs.name }} <span
+            data-trans="for your"> for your
+            message we will back to you asap</span></p>
         <button @click="closeConfirm" data-trans="Close">Close</button>
       </div>
       <div class="details">
@@ -100,6 +100,15 @@ export default {
       },
     }
   },
+  watch: {
+    submitted(newValue, oldValue) {
+      if (newValue && !oldValue) {
+        setTimeout(() => {
+          i18Service.doTrans()
+        }, 1)
+      }
+    },
+  },
   created() {
   },
   mounted() {
@@ -112,6 +121,10 @@ export default {
     }, 6000);
   },
   computed: {
+    isRtl() {
+      console.log(this.$store.getters.isRtl);
+      return this.$store.getters.isRtl === 'he' ? 'rtl-about' : ''
+    }
   },
   methods: {
     animateBoxes() {
