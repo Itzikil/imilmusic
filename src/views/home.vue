@@ -7,8 +7,8 @@
         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd7m5jbJeIyGfLR0BM2uTFs6LX_qPRwITaxiEN1eGa_tnOOGQ/formResponse">
         <img src="@/assets/imgs/sheetsWhite.svg" alt="" class="sheets-background">
         <h2 data-trans="Leave us your details">Leave us your details</h2>
-        <p><span data-trans="Or Contact with us"> Or Contact us </span> <router-link to="/contact" class="bold"
-            data-trans="Here"> Here </router-link>
+        <p><span data-trans="Or contact us"> Or contact us </span> <router-link to="/contact" class="bold"
+            data-trans="here"> here </router-link>
         </p>
         <input type="text" placeholder="name" name="entry.730517852" data-trans="name" v-model="formInputs.name">
         <input type="text" placeholder="email/phone" name="entry.592601501" data-trans="tel/email"
@@ -117,11 +117,11 @@ export default {
   mounted() {
     i18Service.setLang()
     i18Service.doTrans()
-    // this.animationInterval = setInterval(() => {
-    //   if (!this.isPaused) {
-    //     this.animateBoxes();
-    //   }
-    // }, 2000);
+    this.animationInterval = setInterval(() => {
+      if (!this.isPaused) {
+        this.animateBoxes();
+      }
+    }, 6000);
   },
   computed: {
     isRtl() {

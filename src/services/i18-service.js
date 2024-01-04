@@ -74,7 +74,7 @@ var gTrans = {
     },
     'home p1': {
         en: 'You are cordially invited to come study music with us, on a range of instruments. Whether you’ve never touched a musical instrument in your life but have always wanted to, or have been playing for years but would like to take your playing a step forward – this could be the place for you.',
-        he: 'זמינים אתכם ללמוד איתנו שיעורי נגינה במגוון כלים, בין אם מעולם לא נגעתם בכלי נגינה ובין אם אתם מנגנים כבר שנים ורוצים להעמיק עוד ולהתפתח',
+        he: 'מזמינים אתכם ללמוד איתנו שיעורי נגינה במגוון כלים, בין אם מעולם לא נגעתם בכלי נגינה ובין אם אתם מנגנים כבר שנים ורוצים להעמיק עוד ולהתפתח',
     },
     'music-couple': {
         en: 'Izhak & Miriam, a musical couple',
@@ -100,12 +100,12 @@ var gTrans = {
         en: 'Leave us your details',
         he: 'השאירו פרטים ונחזור אליכם',
     },
-    'Or Contact with us': {
-        en: 'Or Contact with us',
+    'Or contact us': {
+        en: 'Or contact us',
         he: 'או צרו קשר',
     },
-    'Here': {
-        en: 'Here',
+    'here': {
+        en: 'here',
         he: 'כאן',
     },
     'name': {
@@ -145,7 +145,7 @@ var gTrans = {
         he: 'עקיבא',
     },
     'חני1': {
-        en: 'Hani',
+        en: 'Chani',
         he: 'חני',
     },
     'שרה1': {
@@ -198,7 +198,7 @@ var gTrans = {
     },
     'רננה': {
         en: 'Itzhak teaches at eye level, and knows to teach at the stage the student is at, and to focus precisely there. For years I taught myself to play. Then I started taking lessons with Izhak and he already pushed me several levels forward, and can diagnose exactly what I’m missing. He is a serious professional.',
-        he: 'יצחק יודע ללמד בגובה העיניים ונכון לשלב שבו התלמיד נמצא, ולדייק בדיוק לרמה. אני כבר שנים לימדתי את עצמי  , התחלתי לקחת עם יצחק שיעורים והוא כבר מקפיץ אותי ברמות ויודע לאבחן בדיוק מה הפערים, מקצוען רציני',
+        he: 'יצחק יודע ללמד בגובה העיניים ונכון לשלב שבו התלמיד נמצא ולדייק בדיוק לרמה. אני כבר שנים לימדתי את עצמי , התחלתי לקחת עם יצחק שיעורים והוא כבר מקפיץ אותי ברמות ויודע לאבחן בדיוק מה הפערים, מקצוען רציני',
     },
     //contact page
     'Contact us': {
