@@ -107,6 +107,31 @@
                     font-size: 15px;
                     margin: auto;
                     justify-content: space-around;
+
+                    p:first-child {
+                        overflow-y: scroll;
+                        scrollbar-width: thin;
+                        /* For Firefox */
+                        scrollbar-color: #888 transparent;
+                        /* For Firefox */
+
+                        /* For Webkit browsers like Chrome and Safari */
+                        &::-webkit-scrollbar {
+                            width: 5px;
+                        }
+
+                        &::-webkit-scrollbar-thumb {
+                            background-color: $clr2;
+                            border-radius: 4px;
+                        }
+
+                        &::-webkit-scrollbar-track {
+                            background-color: transparent;
+                        }
+                        // border: 1px solid #3498db;
+                        border-radius: 8px;
+                        padding-inline: 10px;
+                    }
                 }
 
                 .active-recommand {
@@ -121,10 +146,10 @@
             }
         }
 
-        .container-cover {
-            width: 100%;
-            z-index: 20;
-        }
+        // .container-cover {
+        //     width: 100%;
+        //     z-index: 20;
+        // }
     }
 
     .instruments-container {
@@ -220,7 +245,16 @@
             .details {
                 .p-container {
                     margin-bottom: 20px;
-                    // font-size: 15px;
+                }
+
+                .recommand-container {
+                    height: 260px;
+
+                    .recommand {
+                        height: 230px;
+
+                    }
+
                 }
             }
         }

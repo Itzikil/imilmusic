@@ -17,7 +17,7 @@
         <button type="submit" data-trans="send">send</button>
       </form>
       <div v-if="this.submitted" class="submitted-container">
-        <p :class="[isRtl]"><span data-trans="Thank you">Thank you </span> {{ this.formInputs.name }} <span
+        <p><span data-trans="Thank you">Thank you </span> {{ this.formInputs.name }} <span
             data-trans="for your"> for your
             message we will back to you asap</span></p>
         <button @click="closeConfirm" data-trans="Close">Close</button>
@@ -39,8 +39,8 @@
           <div class="container-cover"></div>
           <div class="recommand" v-for="(recommand, idx) in recommandations"
             :class="{ 'active-recommand ': idx === activeRecommand, 'close-recommand': idx === nextRecommand }">
-            <p :class="recFontSize(recommand.rec)">{{ recommand.rec }}</p>
-            <p><span class="bold"> - {{ recommand.name }} </span> {{ recommand.age }} </p>
+            <p :class="recFontSize(recommand.rec)" :data-trans="recommand.name">{{ recommand.rec }}</p>
+            <p> - <span class="bold" :data-trans="`${recommand.name}1`">{{ recommand.name }} </span> {{ recommand.age }} </p>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@ export default {
         { name: 'bass', img: 'https://images.unsplash.com/photo-1602900332980-6e6f13946a3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' }
       ],
       recommandations: [
-        { name: 'עקיבא לבנדה', rec: 'הבן שלי למד גיטרה עם יצחק לוי. הוא מורה מקסים וקידם את הבן שלי בצורה משמעותית, ממליצה בחום', age: 13 },
+        // { name: 'עקיבא לבנדה', rec: 'הבן שלי למד גיטרה עם יצחק לוי. הוא מורה מקסים וקידם את הבן שלי בצורה משמעותית, ממליצה בחום', age: 13 },
         {
           name: 'חני', rec: `החלטתי בגיל 50 להגשים חלום ילדות, ללמוד לנגן בפסנתר. זו היתה בשבילי התחלה חדשה, וחיפשתי מישהי שתלמד אותי.
           ב''ה הגעתי למרים המתוקה, שקיבלה אותי תמיד בחיוך מאיר, שלימדה אותי שלב אחרי שלב במקצועיות ובסבלנות,
@@ -84,10 +84,13 @@ export default {
           מלמדת בצורה ברורה ומובנת. נהנתי מאוד ללמוד אצל מרים, וממליצה בחום!`, age: 14
         },
         {
+          name: 'רננה', rec: `יצחק יודע ללמד בגובה העיניים ונכון לשלב שבו התלמיד נמצא, ולדייק בדיוק לרמה. אני כבר שנים לימדתי את עצמי  , התחלתי לקחת עם יצחק שיעורים והוא כבר מקפיץ אותי ברמות ויודע לאבחן בדיוק מה הפערים, מקצוען רציני`, age: 23
+        },
+        { name: 'חן', rec: `אני לומדת פסנתר אצל מרים כבר כמה חודשים, מורה נהדרת וסבלנית מלמדת ברמה גבוהה, ואני רואה התקדמות כבר מההתחלה עם הרבה יחס אישי`, age: 20 },
+        {
           name: 'שניאור', rec: `ברצוננו להמליץ על המורה לנגינה יצחק, בנינו הבכור
           לומד אצלו מדי שבוע ומתקדם מאוד יפה, יחס אישי וסבלנות רבה ממליצים בחום`, age: 12
         },
-        { name: 'חן', rec: `אני לומדת פסנתר אצל מרים כבר כמה חודשים, מורה נהדרת וסבלנית מלמדת ברמה גבוהה, ואני רואה התקדמות כבר מההתחלה עם הרבה יחס אישי`, age: 13 },
       ],
       activeRecommand: 0,
       nextRecommand: 1,
@@ -114,15 +117,14 @@ export default {
   mounted() {
     i18Service.setLang()
     i18Service.doTrans()
-    this.animationInterval = setInterval(() => {
-      if (!this.isPaused) {
-        this.animateBoxes();
-      }
-    }, 6000);
+    // this.animationInterval = setInterval(() => {
+    //   if (!this.isPaused) {
+    //     this.animateBoxes();
+    //   }
+    // }, 2000);
   },
   computed: {
     isRtl() {
-      console.log(this.$store.getters.isRtl);
       return this.$store.getters.isRtl === 'he' ? 'rtl-about' : ''
     }
   },
