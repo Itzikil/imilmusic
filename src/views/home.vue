@@ -49,7 +49,7 @@
       <div v-for="instrument in instruments" :key="instrument.name" class="instrument">
         <router-link :to="`/lesson/` + instrument.name" class="img-container">
           <h4 :data-trans=instrument.name>{{ instrument.name }}</h4>
-          <img :src=instrument.img alt="pic">
+          <img :src=instrument.img alt="מורה פרטי לגיטרה, מורה פרטית לפסנתר בתל אביב">
         </router-link>
       </div>
     </div>

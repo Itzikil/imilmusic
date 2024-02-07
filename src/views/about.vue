@@ -3,7 +3,7 @@
         <img src="@/assets/imgs/waves.svg" alt="" class="sheets-background">
         <div class="first-about">
             <div class="img-container">
-                <img src="@/assets/imgs/miriam.jpeg" alt="">
+                <img src="@/assets/imgs/miriam.jpeg" alt="מורה פרטית לפסנתר בתל אביב">
             </div>
             <div class="about-text first-text">
                 <h3 class="bold fs18" data-trans="Miriam">מרים</h3>
@@ -20,7 +20,7 @@
         </div>
         <div class="second-about">
             <div class="img-container">
-                <img src="@/assets/imgs/itzik.jpeg" alt="">
+                <img src="@/assets/imgs/itzik.jpeg" alt="מורה פרטי לגיטרה בתל אביב">
             </div>
             <div class="about-text second-text">
                 <h3 class="bold fs18" data-trans="Itzhak">יצחק</h3>

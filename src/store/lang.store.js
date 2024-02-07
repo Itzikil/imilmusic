@@ -10,7 +10,6 @@ export const langStore = {
     mutations: {
         setRtl(state, value) {
             state.isRtl = value;
-            console.log(state);
         },
     },
 }
