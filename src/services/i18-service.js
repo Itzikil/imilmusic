@@ -233,7 +233,8 @@ var gTrans = {
 
 }
 
-let gCurrLang = storageService.load('lang') || Intl.DateTimeFormat().resolvedOptions().locale
+// let gCurrLang = storageService.load('lang') || Intl.DateTimeFormat().resolvedOptions().locale
+let gCurrLang = storageService.load('lang') || 'he'
 
 function doTrans() {
     const els = document.querySelectorAll('[data-trans]')
