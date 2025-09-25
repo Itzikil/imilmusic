@@ -57,7 +57,7 @@ var gTrans = {
     },
     'miriam p2': {
         en: 'I studied the piano through the years with private teachers of classical music and jazz, and completed certificate studies at the Mizmor School of Music. Today I am a student in the academic program at the Center for Jazz Studies in collaboration with The New School for Jazz and Contemporary Music in New York.',
-        he: `"למדתי פסנתר במהלך השנים באופן פרטי אצל נגנים קלאסיים ואצל נגני ג'אז וכן לימודי תעודה בביה"ס הגבוה למוזיקה "מזמור". כיום סטודנטית בתכנית האקדמית ללימודי ג'אז בשיתוף הניו-סקול ניו יורק.`,
+        he: `"למדתי פסנתר במהלך השנים באופן פרטי אצל נגנים קלאסיים ואצל נגני ג'אז, בוגרת ביה"ס הגבוה למוזיקה "מזמור", בוגרת תכנית האקדמית ללימודי ג'אז בשיתוף הניו-סקול ניו יורק, כיום סטודנטית באקדמיה למוזיקה.`,
     },
     'miriam p1': {
         en: 'I play jazz, pop and classical music. I accompany singers and play in original instrumental ensembles.',
@@ -238,7 +238,7 @@ let gCurrLang = storageService.load('lang') || 'he'
 
 function doTrans() {
     const els = document.querySelectorAll('[data-trans]')
-    console.log(els);
+    // console.log(els);
     els.forEach(el => {
         const transKey = el.dataset.trans
         const trans = getTrans(transKey)
