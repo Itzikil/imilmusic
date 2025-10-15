@@ -3,7 +3,7 @@
     <div class="hero-container">
       <iframe name="hiddenConfirm" id="hiddenConfirm" style="display: none;"
         onload="if(this.submitted){widow.location='imilmusic.com/lesson'}"></iframe>
-      <form :class="['message-box']" id="myForm" method="POST" target="hiddenConfirm" @submit="this.submitted = true"
+      <form :class="['message-box']" id="myForm" method="POST" target="hiddenConfirm" @submit.prevent="handleSubmit"
         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd7m5jbJeIyGfLR0BM2uTFs6LX_qPRwITaxiEN1eGa_tnOOGQ/formResponse">
         <img src="@/assets/imgs/sheetsWhite.svg" alt="" class="sheets-background">
         <h2 data-trans="Leave us your details">Leave us your details</h2>
@@ -13,12 +13,13 @@
         <input type="text" placeholder="name" name="entry.730517852" data-trans="name" v-model="formInputs.name">
         <input type="text" placeholder="email/phone" name="entry.592601501" data-trans="tel/email"
           v-model="formInputs.email">
-        <input type="text" placeholder="subject" name="entry.211603254" data-trans="subject" v-model="formInputs.subject">
+        <input type="text" placeholder="subject" name="entry.211603254" data-trans="subject"
+          v-model="formInputs.subject">
         <button type="submit" data-trans="send">send</button>
       </form>
       <div v-if="this.submitted" class="submitted-container">
-        <p><span data-trans="Thank you">Thank you </span> {{ this.formInputs.name }} <span
-            data-trans="for your"> for your
+        <p><span data-trans="Thank you">Thank you </span> {{ this.formInputs.name }} <span data-trans="for your"> for
+            your
             message we will back to you asap</span></p>
         <button @click="closeConfirm" data-trans="Close">Close</button>
       </div>
@@ -31,7 +32,8 @@
             מנגנים כבר שנים ורוצים להעמיק עוד ולהתפתח
           </p>
           <p data-trans="home p2">
-            ילדים בגיל 6 ועד מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד, מוזמנים לשיעורים באווירה ביתית, סבלנית ונעימה
+            ילדים בגיל 6 ועד מבוגרים שמסכימים איתנו שאף פעם לא מאוחר ללמוד, מוזמנים לשיעורים באווירה ביתית, סבלנית
+            ונעימה
           </p>
         </div>
         <div class="recommand-container" @mouseenter="pauseAnimation" @mouseleave="resumeAnimation"
@@ -40,7 +42,8 @@
           <div class="recommand" v-for="(recommand, idx) in recommandations"
             :class="{ 'active-recommand ': idx === activeRecommand, 'close-recommand': idx === nextRecommand }">
             <p :class="recFontSize(recommand.rec)" :data-trans="recommand.name">{{ recommand.rec }}</p>
-            <p> - <span class="bold" :data-trans="`${recommand.name}1`">{{ recommand.name }} </span> {{ recommand.age }} </p>
+            <p> - <span class="bold" :data-trans="`${recommand.name}1`">{{ recommand.name }} </span> {{ recommand.age }}
+            </p>
           </div>
         </div>
       </div>
@@ -129,6 +132,16 @@ export default {
     }
   },
   methods: {
+    handleSubmit(e) {
+      if (!this.formInputs.email.trim()) {
+        alert("Please enter your phone or email before sending. בבקשה להזין טלפון או אימייל לפני השליחה");
+        return;
+      }
+
+      // Passed validation → submit the form
+      this.submitted = true;
+      e.target.submit(); // continue with real submit to Google Form
+    },
     animateBoxes() {
       this.activeRecommand = (this.activeRecommand + 1) % this.recommandations.length;
       this.nextRecommand = (this.activeRecommand + 1) % this.recommandations.length;
