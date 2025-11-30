@@ -1,6 +1,8 @@
 <template>
     <section class="container contact-container text-center">
         <h2 data-trans="Contact us">Contact us</h2>
+        <a target="_blank" href="https://share.google/qs7i6dBJnQSrOABoO"><img class="logo google-logo"
+                src="@/assets/logos/google.svg" alt="youtube"></a>
         <div class="flex space-between">
             <div class="contacts-container">
                 <h4 data-trans="Miriam">Miriam</h4>
@@ -27,7 +29,7 @@
         </div>
     </section>
 </template>
-  
+
 <script>
 import { i18Service } from '../services/i18-service.js';
 
@@ -50,4 +52,3 @@ export default {
     }
 }
 </script>
-  

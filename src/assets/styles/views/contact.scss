@@ -1,6 +1,6 @@
 .contact-container {
     padding-top: 40px;
-    
+
     .contacts-container {
         padding-top: 50px;
         display: flex;
@@ -19,6 +19,7 @@
         margin: 0;
         display: flex;
         align-items: center;
+        justify-content: center;
     }
 
     .logo {
@@ -30,6 +31,9 @@
         // &:hover{
         //     color: aqua;
         // }
+        &.google-logo{
+            width: 40px;
+        }
     }
 
     .left-logo {
